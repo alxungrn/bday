@@ -3,7 +3,7 @@ import { neon } from '@neondatabase/serverless';
 export async function onRequest(context) {
   try {
     // In Cloudflare, secrets are accessed via context.env
-    const sql = neon(context.env.DATABASE_URL);
+    const sql = neon(context.env.NETLIFY_DATABASE_URL_UNPOOLED);
     
     const rsvps = await sql`
       SELECT name, coming, drinks, timestamp
@@ -22,4 +22,5 @@ export async function onRequest(context) {
       headers: { 'Content-Type': 'application/json' }
     });
   }
+
 }

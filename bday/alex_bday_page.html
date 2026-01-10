@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>alex's birthday party</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Arial:wght@700;900&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: #0a0a0a;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+        }
+        
+        .section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            position: relative;
+        }
+        
+        .hero {
+            background: #0a0a0a;
+        }
+        
+        .brat-text {
+            font-size: clamp(3rem, 15vw, 12rem);
+            font-weight: 900;
+            text-transform: lowercase;
+            letter-spacing: -0.05em;
+            line-height: 0.9;
+            text-align: center;
+        }
+        
+        .neon-green {
+            color: #8ace00;
+            text-shadow: 0 0 20px #8ace00;
+        }
+        
+        .neon-pink {
+            color: #ff006e;
+            text-shadow: 0 0 20px #ff006e;
+        }
+        
+        .neon-blue {
+            color: #00d9ff;
+            text-shadow: 0 0 20px #00d9ff;
+        }
+        
+        .blur-text {
+            filter: blur(0.5px);
+            animation: blur-pulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes blur-pulse {
+            0%, 100% { filter: blur(0.5px); }
+            50% { filter: blur(1px); }
+        }
+        
+        .subtitle {
+            font-size: clamp(1rem, 3vw, 2rem);
+            margin-top: 2rem;
+            opacity: 0.7;
+            text-transform: lowercase;
+        }
+        
+        .details-section {
+            background: #0f0f0f;
+        }
+        
+        .content-box {
+            max-width: 800px;
+            width: 100%;
+        }
+        
+        .section-title {
+            font-size: clamp(2rem, 8vw, 5rem);
+            font-weight: 900;
+            text-transform: lowercase;
+            margin-bottom: 2rem;
+            letter-spacing: -0.03em;
+        }
+        
+        .detail-item {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: rgba(138, 206, 0, 0.1);
+            border-left: 4px solid #8ace00;
+        }
+        
+        .detail-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            text-transform: lowercase;
+            color: #8ace00;
+        }
+        
+        .detail-item p {
+            opacity: 0.8;
+            line-height: 1.6;
+            text-transform: lowercase;
+        }
+        
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .timeline-item {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            padding: 1rem;
+            background: rgba(255, 0, 110, 0.1);
+            border-left: 4px solid #ff006e;
+        }
+        
+        .time {
+            font-size: 2rem;
+            font-weight: 900;
+            color: #ff006e;
+            min-width: 80px;
+        }
+        
+        .activity {
+            opacity: 0.8;
+        }
+        
+        .gifts-section {
+            background: #0f0f0f;
+        }
+        
+        .gift-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+            width: 100%;
+            max-width: 1200px;
+        }
+        
+        .gift-card {
+            background: rgba(0, 217, 255, 0.1);
+            border: 2px solid #00d9ff;
+            padding: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .gift-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 30px rgba(0, 217, 255, 0.3);
+        }
+
+        .gift-card.no-link {
+            cursor: default;
+        }
+        
+        .gift-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            text-transform: lowercase;
+            color: #00d9ff;
+        }
+        
+        .gift-card p {
+            opacity: 0.7;
+            font-size: 0.9rem;
+            text-transform: lowercase;
+        }
+        
+        .rsvp-section {
+            background: #0a0a0a;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            text-transform: lowercase;
+            color: #8ace00;
+            font-weight: 700;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(138, 206, 0, 0.1);
+            border: 2px solid #8ace00;
+            color: #fff;
+            font-family: inherit;
+            font-size: 1rem;
+            text-transform: lowercase;
+        }
+        
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        
+        .btn {
+            background: #8ace00;
+            color: #0a0a0a;
+            padding: 1rem 3rem;
+            border: none;
+            font-size: 1.2rem;
+            font-weight: 900;
+            text-transform: lowercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+        
+        .btn:hover {
+            background: #fff;
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(138, 206, 0, 0.5);
+        }
+        
+        .bingo-section {
+            background: #0f0f0f;
+        }
+        
+        .bingo-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 0.5rem;
+            max-width: 800px;
+            width: 100%;
+            margin-top: 2rem;
+        }
+        
+        .bingo-cell {
+            aspect-ratio: 1;
+            background: rgba(255, 0, 110, 0.1);
+            border: 2px solid #ff006e;
+            padding: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 0.7rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: lowercase;
+        }
+        
+        .bingo-cell:hover {
+            background: rgba(255, 0, 110, 0.3);
+            transform: scale(1.05);
+        }
+        
+        .bingo-cell.marked {
+            background: #ff006e;
+            color: #0a0a0a;
+            font-weight: 900;
+        }
+        
+        .bingo-cell.free {
+            background: #8ace00;
+            color: #0a0a0a;
+            font-weight: 900;
+        }
+        
+        .scroll-hint {
+            position: absolute;
+            bottom: 2rem;
+            font-size: 0.9rem;
+            opacity: 0.5;
+            text-transform: lowercase;
+            animation: bounce 2s ease-in-out infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        @media (max-width: 768px) {
+            .bingo-grid {
+                grid-template-columns: repeat(5, 1fr);
+                gap: 0.3rem;
+            }
+            
+            .bingo-cell {
+                font-size: 0.5rem;
+                padding: 0.3rem;
+            }
+        }
+        
+        .confirmation {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: rgba(138, 206, 0, 0.2);
+            border: 2px solid #8ace00;
+            text-transform: lowercase;
+        }
+
+        .rsvp-list {
+            margin-top: 3rem;
+            padding: 2rem;
+            background: rgba(138, 206, 0, 0.05);
+            border: 2px solid #8ace00;
+        }
+
+        .rsvp-list h3 {
+            color: #8ace00;
+            margin-bottom: 1rem;
+            text-transform: lowercase;
+        }
+
+        .rsvp-item {
+            padding: 1rem;
+            margin-bottom: 1rem;
+            background: rgba(138, 206, 0, 0.1);
+            border-left: 3px solid #8ace00;
+        }
+
+        .rsvp-item p {
+            margin: 0.25rem 0;
+            text-transform: lowercase;
+        }
+
+        .rsvp-item strong {
+            color: #8ace00;
+        }
+
+        .loading {
+            opacity: 0.5;
+            text-transform: lowercase;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="section hero">
+        <div class="brat-text blur-text">
+            <div class="neon-green">alex's</div>
+            <div class="neon-pink">birthday</div>
+            <div class="neon-blue">party</div>
+        </div>
+        <div class="subtitle">april 18, 2026</div>
+        <div class="subtitle" style="margin-top: 1rem;">you're invited. again.</div>
+        <div class="scroll-hint">scroll if you care ↓</div>
+    </section>
+
+    <!-- Details Section -->
+    <section class="section details-section">
+        <div class="content-box">
+            <h2 class="section-title neon-green">the details</h2>
+            
+            <div class="detail-item">
+                <h3>when</h3>
+                <p>april 18, 2026</p>
+                <p>exact time tbd but like... probably evening</p>
+            </div>
+            
+            <div class="detail-item">
+                <h3>where</h3>
+                <p>my house</p>
+                <p>strada teleajen 50, etaj 3, apt 6</p>
+                <p>interfon 3</p>
+                <p>subway: piata muncii / piata iancului</p>
+                <p>but let's be serious most of you will uber here</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="section" style="background: #0a0a0a;">
+        <div class="content-box">
+            <h2 class="section-title neon-pink">timeline</h2>
+            <p style="opacity: 0.7; margin-bottom: 2rem; text-transform: lowercase;">
+                here's how the night will probably go
+            </p>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="time">18:00</div>
+                    <div class="activity">activity (one of those things i mentioned)</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="time">19:00</div>
+                    <div class="activity">restaurant - gotta eat</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="time">21:00</div>
+                    <div class="activity">manele - self-explanatory</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="time">22:00</div>
+                    <div class="activity">acasa - first bottle opens</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="time">00:00</div>
+                    <div class="activity">baieramul continues</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gifts Section -->
+    <section class="section gifts-section">
+        <div class="content-box" style="max-width: 1200px;">
+            <h2 class="section-title neon-blue">gift ideas</h2>
+            <p style="opacity: 0.7; margin-bottom: 1rem; text-transform: lowercase;">
+                just pick whatever
+            </p>
+            <p style="opacity: 0.5; margin-bottom: 2rem; text-transform: lowercase; font-size: 0.9rem;">
+                wishlist: <a href="https://mywishlist.online/w/rlp4wg/alexs-wishlist" style="color: #00d9ff;">mywishlist.online/w/rlp4wg/alexs-wishlist</a>
+            </p>
+            
+            <div class="gift-grid" id="giftGrid">
+                <!-- Gift cards will be loaded from database -->
+            </div>
+        </div>
+    </section>
+
+    <!-- RSVP Section -->
+    <section class="section rsvp-section">
+        <div class="content-box">
+            <h2 class="section-title neon-green">rsvp</h2>
+            <p style="opacity: 0.7; margin-bottom: 2rem; text-transform: lowercase;">
+                let me know if you're coming. or don't. whatever.
+            </p>
+            
+            <form id="rsvpForm">
+                <div class="form-group">
+                    <label>your name</label>
+                    <input type="text" id="name" placeholder="who" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>are you coming?</label>
+                    <input type="text" id="coming" placeholder="yay or nay" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>what do you want to drink?</label>
+                    <textarea id="drinks" placeholder="be specific about wine colors, beer colors, water sources..."></textarea>
+                </div>
+                
+                <button type="submit" class="btn">submit</button>
+                
+                <div id="confirmation" class="confirmation" style="display: none;">
+                    cool. got it. see you there.
+                </div>
+            </form>
+
+            <div id="rsvpList" class="rsvp-list" style="display: none;">
+                <h3>who's actually coming</h3>
+                <div id="rsvpItems"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BINGO Section -->
+    <section class="section bingo-section">
+        <div class="content-box" style="max-width: 900px;">
+            <h2 class="section-title neon-pink">party bingo</h2>
+            <p style="opacity: 0.7; margin-bottom: 2rem; text-transform: lowercase;">
+                click when it happens. let's see who wins.
+            </p>
+            
+            <div class="bingo-grid" id="bingoGrid">
+                <!-- Bingo cells will be loaded from database -->
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // API calls to Netlify functions
+        async function saveRSVP(name, coming, drinks) {
+            try {
+                const res = await fetch('/.netlify/functions/save-rsvp', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, coming, drinks })
+                });
+                return res.ok;
+            } catch (error) {
+                console.error('Error saving RSVP:', error);
+                return false;
+            }
+        }
+
+        async function loadRSVPs() {
+            try {
+                const res = await fetch('/.netlify/functions/get-rsvps');
+                if (!res.ok) return [];
+                return await res.json();
+            } catch (error) {
+                console.error('Error loading RSVPs:', error);
+                return [];
+            }
+        }
+
+        async function loadBingo() {
+            try {
+                const res = await fetch('/.netlify/functions/get-bingo');
+                if (!res.ok) return [];
+                return await res.json();
+            } catch (error) {
+                console.error('Error loading bingo:', error);
+                return [];
+            }
+        }
+
+        async function updateBingoCell(cellIndex, checked) {
+            try {
+                const res = await fetch('/.netlify/functions/update-bingo', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ cellIndex, checked })
+                });
+                return res.ok;
+            } catch (error) {
+                console.error('Error updating bingo:', error);
+                return false;
+            }
+        }
+
+        async function loadGifts() {
+            try {
+                const res = await fetch('/.netlify/functions/get-gifts');
+                if (!res.ok) return [];
+                return await res.json();
+            } catch (error) {
+                console.error('Error loading gifts:', error);
+                return [];
+            }
+        }
+
+        // Display RSVPs
+        async function displayRSVPs() {
+            const rsvps = await loadRSVPs();
+            const container = document.getElementById('rsvpItems');
+            const listSection = document.getElementById('rsvpList');
+            
+            if (rsvps.length === 0) {
+                listSection.style.display = 'none';
+                return;
+            }
+            
+            listSection.style.display = 'block';
+            container.innerHTML = rsvps.map(rsvp => `
+                <div class="rsvp-item">
+                    <p><strong>${rsvp.name}</strong> - ${rsvp.coming}</p>
+                    ${rsvp.drinks ? `<p>drinks: ${rsvp.drinks}</p>` : ''}
+                </div>
+            `).join('');
+        }
+
+        // Initialize bingo grid
+        async function initBingo() {
+            const bingoData = await loadBingo();
+            const grid = document.getElementById('bingoGrid');
+            
+            grid.innerHTML = bingoData.map((cell, index) => {
+                const isFree = cell.bingo_text === 'free space';
+                const classes = `bingo-cell ${isFree ? 'free' : ''} ${cell.checked ? 'marked' : ''}`;
+                return `<div class="${classes}" data-index="${cell.cell_index}">${cell.bingo_text}</div>`;
+            }).join('');
+            
+            // Add click handlers
+            document.querySelectorAll('.bingo-cell:not(.free)').forEach(cell => {
+                cell.addEventListener('click', async function() {
+                    const index = parseInt(this.dataset.index);
+                    const isChecked = this.classList.contains('marked');
+                    
+                    this.classList.toggle('marked');
+                    await updateBingoCell(index, !isChecked);
+                });
+            });
+        }
+
+        // Initialize gifts grid
+        async function initGifts() {
+            const gifts = await loadGifts();
+            const grid = document.getElementById('giftGrid');
+            
+            grid.innerHTML = gifts.map(gift => {
+                if (gift.link) {
+                    return `
+                        <a href="${gift.link}" target="_blank" class="gift-card">
+                            <h3>${gift.gift_name}</h3>
+                            <p>${gift.description}</p>
+                        </a>
+                    `;
+                } else {
+                    return `
+                        <div class="gift-card no-link">
+                            <h3>${gift.gift_name}</h3>
+                            <p>${gift.description}</p>
+                        </div>
+                    `;
+                }
+            }).join('');
+        }
+
+        // RSVP Form Handler
+        document.getElementById('rsvpForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const coming = document.getElementById('coming').value;
+            const drinks = document.getElementById('drinks').value;
+            
+            const confirmation = document.getElementById('confirmation');
+            confirmation.textContent = 'saving...';
+            confirmation.style.display = 'block';
+            
+            const saved = await saveRSVP(name, coming, drinks);
+            
+            if (saved) {
+                confirmation.textContent = 'cool. got it. see you there.';
+                this.reset();
+                await displayRSVPs();
+                setTimeout(() => {
+                    confirmation.style.display = 'none';
+                }, 3000);
+            } else {
+                confirmation.textContent = 'ugh something broke. try again.';
+            }
+        });
+
+        // Initialize on load
+        window.addEventListener('DOMContentLoaded', async () => {
+            await displayRSVPs();
+            await initBingo();
+            await initGifts();
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

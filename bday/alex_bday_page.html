@@ -506,7 +506,7 @@
         // API calls to Netlify functions
         async function saveRSVP(name, coming, drinks) {
             try {
-                const res = await fetch('/functions/save-rsvp', {
+                const res = await fetch('/save-rsvp', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ name, coming, drinks })
@@ -520,7 +520,7 @@
 
         async function loadRSVPs() {
             try {
-                const res = await fetch('/functions/get-rsvps');
+                const res = await fetch('/get-rsvps');
                 if (!res.ok) return [];
                 return await res.json();
             } catch (error) {
@@ -531,7 +531,7 @@
 
         async function loadBingo() {
             try {
-                const res = await fetch('/functions/get-bingo');
+                const res = await fetch('/get-bingo');
                 if (!res.ok) return [];
                 return await res.json();
             } catch (error) {
@@ -542,7 +542,7 @@
 
         async function updateBingoCell(cellIndex, checked) {
             try {
-                const res = await fetch('/functions/update-bingo', {
+                const res = await fetch('/update-bingo', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ cellIndex, checked })
@@ -556,7 +556,7 @@
 
         async function loadGifts() {
             try {
-                const res = await fetch('/functions/get-gifts');
+                const res = await fetch('/get-gifts');
                 if (!res.ok) return [];
                 return await res.json();
             } catch (error) {

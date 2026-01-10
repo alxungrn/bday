@@ -1,8 +1,9 @@
-const { neon } = require('@neondatabase/serverless');
+import { neon } from '@neondatabase/serverless';
 
-exports.handler = async () => {
+export async function onRequest(context) {
   try {
-    const sql = neon(process.env.NETLIFY_DATABASE_URL_UNPOOLED);
+    // In Cloudflare, secrets are accessed via context.env
+    const sql = neon(context.env.DATABASE_URL);
     
     const rsvps = await sql`
       SELECT name, coming, drinks, timestamp
@@ -10,15 +11,15 @@ exports.handler = async () => {
       ORDER BY timestamp DESC
     `;
     
-    return {
-      statusCode: 200,
-      body: JSON.stringify(rsvps)
-    };
+    return new Response(JSON.stringify(rsvps), {
+      status: 200,
+      headers: { 'Content-Type': 'application/json' }
+    });
   } catch (error) {
     console.error('Error:', error);
-    return {
-      statusCode: 500,
-      body: JSON.stringify({ error: 'Failed to load RSVPs' })
-    };
+    return new Response(JSON.stringify({ error: 'Failed to load RSVPs' }), {
+      status: 500,
+      headers: { 'Content-Type': 'application/json' }
+    });
   }
-};
+}

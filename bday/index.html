@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -15,12 +16,16 @@
     }
 
 
-    
+
     body {
       height: 100vh;
+      height: 100dvh;
+      /* Use dynamic viewport height for Safari */
       overflow: hidden;
       background: #000;
       color: white;
+      position: relative;
+      /* Set anchor for the center-title */
     }
 
     .split {
@@ -54,7 +59,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.3) 100%);
+      background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
       opacity: 0;
       transition: opacity 0.8s ease;
       z-index: 2;
@@ -68,7 +73,7 @@
       opacity: 1;
     }
 
-    
+
     /* ALEX — BRAT PARTY */
     .party {
       background: #8ace00;
@@ -78,19 +83,17 @@
     .party .blur-overlay {
       position: absolute;
       inset: 0;
-      background: 
-        repeating-linear-gradient(
-          0deg,
-          rgba(0,0,0,0.03) 0px,
+      background:
+        repeating-linear-gradient(0deg,
+          rgba(0, 0, 0, 0.03) 0px,
           transparent 1px,
           transparent 2px,
-          rgba(0,0,0,0.03) 3px
-        );
+          rgba(0, 0, 0, 0.03) 3px);
       filter: blur(1px);
       z-index: 1;
     }
 
-   .brat-text {
+    .brat-text {
       font-family: arial;
       font-weight: 0;
       letter-spacing: 0em;
@@ -101,19 +104,31 @@
       filter: blur(2px);
       text-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
       transform: scaleY(1.15);
-   }
+    }
 
-   .stretch {
-    display:inline-block;
-    -webkit-transform:scale(1,1.2); /* Safari and Chrome */
-    -moz-transform:scale(1,1.2); /* Firefox */
-    -ms-transform:scale(1,1.2); /* IE 9 */
-    -o-transform:scale(1,1.2); /* Opera */
-    transform:scale(1,1.2); /* W3C */}
-   
+    .stretch {
+      -webkit-transform: scale(1, 1.2);
+      /* Safari and Chrome */
+      -moz-transform: scale(1, 1.2);
+      /* Firefox */
+      -ms-transform: scale(1, 1.2);
+      /* IE 9 */
+      -o-transform: scale(1, 1.2);
+      /* Opera */
+      transform: scale(1, 1.2);
+      /* W3C */
+    }
+
     @keyframes float {
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      50% { transform: translate(30px, -30px) scale(1.1); }
+
+      0%,
+      100% {
+        transform: translate(0, 0) scale(1);
+      }
+
+      50% {
+        transform: translate(30px, -30px) scale(1.1);
+      }
     }
 
     /* ROBI — FANTASY */
@@ -122,11 +137,9 @@
     }
 
     .fantasy::before {
-      background: radial-gradient(
-        circle at 50% 50%,
-        rgba(212, 175, 55, 0.15) 0%,
-        transparent 60%
-      );
+      background: radial-gradient(circle at 50% 50%,
+          rgba(212, 175, 55, 0.15) 0%,
+          transparent 60%);
     }
 
     .fantasy .ember-particles {
@@ -146,16 +159,44 @@
       animation: rise 12s linear infinite;
     }
 
-    .ember:nth-child(1) { left: 20%; animation-delay: 0s; }
-    .ember:nth-child(2) { left: 40%; animation-delay: 3s; }
-    .ember:nth-child(3) { left: 60%; animation-delay: 6s; }
-    .ember:nth-child(4) { left: 80%; animation-delay: 9s; }
+    .ember:nth-child(1) {
+      left: 20%;
+      animation-delay: 0s;
+    }
+
+    .ember:nth-child(2) {
+      left: 40%;
+      animation-delay: 3s;
+    }
+
+    .ember:nth-child(3) {
+      left: 60%;
+      animation-delay: 6s;
+    }
+
+    .ember:nth-child(4) {
+      left: 80%;
+      animation-delay: 9s;
+    }
 
     @keyframes rise {
-      0% { transform: translateY(100vh) translateX(0); opacity: 0; }
-      10% { opacity: 0.8; }
-      90% { opacity: 0.8; }
-      100% { transform: translateY(-100vh) translateX(30px); opacity: 0; }
+      0% {
+        transform: translateY(100vh) translateX(0);
+        opacity: 0;
+      }
+
+      10% {
+        opacity: 0.8;
+      }
+
+      90% {
+        opacity: 0.8;
+      }
+
+      100% {
+        transform: translateY(-100vh) translateX(30px);
+        opacity: 0;
+      }
     }
 
     /* Dragon runes background */
@@ -182,29 +223,64 @@
       width: 100%;
       height: 100%;
       object-fit: contain;
-      filter: 
-        brightness(0) 
-        saturate(100%) 
-        invert(71%) 
-        sepia(47%) 
-        saturate(524%) 
-        hue-rotate(9deg) 
-        brightness(92%) 
-        contrast(87%)
-        drop-shadow(0 0 30px rgba(255, 107, 53, 0.3));
+      filter:
+        brightness(0) saturate(100%) invert(71%) sepia(47%) saturate(524%) hue-rotate(9deg) brightness(92%) contrast(87%) drop-shadow(0 0 30px rgba(255, 107, 53, 0.3));
     }
 
-    .rune:nth-child(1) { top: 10%; left: 65%; animation-delay: 0s; }
-    .rune:nth-child(2) { top: 30%; right: 10%; animation-delay: 3s; }
-    .rune:nth-child(3) { top: 60%; left: 50%; animation-delay: 6s; }
-    .rune:nth-child(4) { top: 80%; right: 20%; animation-delay: 9s; }
-    .rune:nth-child(5) { top: 45%; left: 50%; animation-delay: 12s; }
-    .rune:nth-child(6) { top: 25%; left: 70%; animation-delay: 15s; }
-    .rune:nth-child(7) { top: 70%; left: 60%; animation-delay: 18s; }
+    .rune:nth-child(1) {
+      top: 10%;
+      left: 65%;
+      animation-delay: 0s;
+    }
+
+    .rune:nth-child(2) {
+      top: 30%;
+      right: 10%;
+      animation-delay: 3s;
+    }
+
+    .rune:nth-child(3) {
+      top: 60%;
+      left: 50%;
+      animation-delay: 6s;
+    }
+
+    .rune:nth-child(4) {
+      top: 80%;
+      right: 20%;
+      animation-delay: 9s;
+    }
+
+    .rune:nth-child(5) {
+      top: 45%;
+      left: 50%;
+      animation-delay: 12s;
+    }
+
+    .rune:nth-child(6) {
+      top: 25%;
+      left: 70%;
+      animation-delay: 15s;
+    }
+
+    .rune:nth-child(7) {
+      top: 70%;
+      left: 60%;
+      animation-delay: 18s;
+    }
 
     @keyframes float {
-      0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.03; }
-      50% { transform: translateY(-30px) rotate(5deg); opacity: 0.08; }
+
+      0%,
+      100% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.03;
+      }
+
+      50% {
+        transform: translateY(-30px) rotate(5deg);
+        opacity: 0.08;
+      }
     }
 
     /* CONTENT */
@@ -255,7 +331,7 @@
 
     .party .tagline {
       text-transform: lowercase;
-      filter: blur(1.5px);
+      filter: blur(1px);
       font-family: arial;
       letter-spacing: 0;
     }
@@ -276,29 +352,31 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+      /* Core fix for Safari centering */
       z-index: 25;
       pointer-events: none;
       text-align: center;
-      margin-top: 0;
+      width: 100%;
+      /* Ensure it spans the width to center the text inside */
     }
 
     .center-title h1 {
       font-size: clamp(1.2rem, 3vw, 1.8rem);
       letter-spacing: 0.5em;
-      opacity: 0.6;
+      opacity: 0.8;
+      /* Increased slightly for legibility */
       font-weight: 700;
       text-transform: uppercase;
       color: white;
-      text-shadow: 
-        0 0 20px rgba(0,0,0,0.8),
-        2px 2px 4px rgba(0,0,0,0.9);
-      mix-blend-mode: difference;
+      text-shadow: 0 0 20px rgba(0, 0, 0, 1);
+      /* Remove mix-blend-mode if the text disappears on certain backgrounds in Safari */
     }
 
     /* MOBILE */
     @media (max-width: 768px) {
       .split {
         flex-direction: column;
+        height: 100dvh;
       }
 
       .side:hover {
@@ -307,28 +385,44 @@
 
       .center-title {
         top: 50%;
-        margin-top: 0;
+        transform: translate(-50%, -50%);
+        /* Ensure it stays centered when columns stack */
       }
 
       body {
-        overflow-y: auto;
+        overflow: hidden;
       }
     }
 
     /* Entrance animation */
     @keyframes slideInLeft {
-      from { transform: translateX(-100%); }
-      to { transform: translateX(0); }
+      from {
+        transform: translateX(-100%);
+      }
+
+      to {
+        transform: translateX(0);
+      }
     }
 
     @keyframes slideInRight {
-      from { transform: translateX(100%); }
-      to { transform: translateX(0); }
+      from {
+        transform: translateX(100%);
+      }
+
+      to {
+        transform: translateX(0);
+      }
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
     }
 
     .party {
@@ -352,11 +446,11 @@
 
   <div class="split">
     <!-- ALEX — PARTY -->
-    <a class="side party" href="alex.html?person=alex">     
+    <a class="side party" href="alex.html?person=alex">
       <div class="blur-overlay"></div>
       <div class="content">
         <div class="brat-text stretch">alex</div>
-        <div class="tagline ">and it's the same bday but a different year so not really</div>
+        <div class="tagline stretch"> it's the same bday but a different year so not really</div>
       </div>
     </a>
 
@@ -382,4 +476,5 @@
     </a>
   </div>
 </body>
+
 </html>

@@ -536,25 +536,26 @@
     }
 
     .bingo-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 8px;
-  min-width: 500px; /* This ensures it stays a readable size on small phones */
-  max-width: 800px;
-  margin: 0 auto;
-}
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 8px;
+      min-width: 500px;
+      /* This ensures it stays a readable size on small phones */
+      max-width: 800px;
+      margin: 0 auto;
+    }
 
     .bingo-cell {
       aspect-ratio: 1 / 1;
       background: linear-gradient(135deg, rgba(30, 30, 30, 0.9), rgba(15, 15, 15, 0.9));
       border: 2px solid rgba(212, 175, 55, 0.3);
       display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  font-size: 0.8rem;
-  padding: 8px;
-  word-break: break-word;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 0.8rem;
+      padding: 8px;
+      word-break: break-word;
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }

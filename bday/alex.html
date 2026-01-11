@@ -255,6 +255,17 @@
             background: #0f0f0f;
         }
         
+        .bingo-wrapper {
+        width: 100%;
+        overflow-x: auto;
+        /* Enables horizontal scroll for ONLY this div */
+        -webkit-overflow-scrolling: touch;
+        /* Smooth scrolling on iOS */
+        padding: 20px 0;
+        /* Space for the "glow" so it doesn't get cut off */
+        cursor: grab;
+        }
+
         .bingo-grid {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
@@ -501,9 +512,10 @@
             <p style="opacity: 0.7; margin-bottom: 2rem; text-transform: lowercase;">
                 click when it happens.
             </p>
-            
+            <div class="bingo-wrapper">
             <div class="bingo-grid" id="bingoGrid">
                 <!-- Bingo cells will be loaded from database -->
+            </div>
             </div>
         </div>
     </section>

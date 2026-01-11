@@ -554,17 +554,26 @@
             }
         }
 
-        async function loadGifts() {
+       async function loadGifts() {
             try {
-                const res = await fetch('/get-gifts-by-person?person=${person}');
-                if (!res.ok) return [];
+                // 1. Grab the 'person' value from the browser's current URL
+                const urlParams = new URLSearchParams(window.location.search);
+                const person = urlParams.get('person');
+
+                // 2. Use BACKTICKS ( ` ) for the URL string
+                const res = await fetch(`/get-gifts-by-person?person=${person}`);
+                
+                if (!res.ok) {
+                    console.error('Server responded with error:', res.status);
+                    return [];
+                }
+                
                 return await res.json();
             } catch (error) {
                 console.error('Error loading gifts:', error);
                 return [];
             }
         }
-
         // Display RSVPs
         async function displayRSVPs() {
             const rsvps = await loadRSVPs();

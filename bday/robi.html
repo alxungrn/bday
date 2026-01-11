@@ -524,28 +524,40 @@
     }
 
     /* Bingo */
+    /* 1. The Wrapper: This stops the page from stretching */
+    .bingo-wrapper {
+      width: 100%;
+      overflow-x: auto;
+      /* Enables horizontal scroll for ONLY this div */
+      -webkit-overflow-scrolling: touch;
+      /* Smooth scrolling on iOS */
+      padding: 20px 0;
+      /* Space for the "glow" so it doesn't get cut off */
+      cursor: grab;
+    }
+
+    /* 2. The Grid: Set a minimum width so it doesn't squash too much */
     .bingo-grid {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
-      gap: 0.8rem;
+      gap: 8px;
+      min-width: 500px;
+      /* This ensures it stays a readable size on small phones */
       max-width: 800px;
-      margin: 3rem auto 0;
+      margin: 0 auto;
     }
 
+    /* 3. The Cells: Force the square shape */
     .bingo-cell {
-      aspect-ratio: 1;
-      background: linear-gradient(135deg, rgba(30, 30, 30, 0.9), rgba(15, 15, 15, 0.9));
-      border: 2px solid rgba(212, 175, 55, 0.3);
+      aspect-ratio: 1 / 1;
+      /* ... keep your existing colors/borders ... */
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
       font-size: 0.8rem;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      padding: 0.5rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
+      padding: 8px;
+      word-break: break-word;
     }
 
     .bingo-cell:hover {
@@ -680,17 +692,14 @@
 
       /* Bingo Grid: Switch to 3 columns instead of 5 to keep text readable */
       .bingo-grid {
-        grid-template-columns: repeat(5, 1fr) !important;
-        /* Force 5 columns */
-        gap: 4px;
-        /* Tighter gaps to save space */
+        min-width: 450px;
+        /* Slight shrink for smaller screens but stays wide enough to scroll */
+        gap: 5px;
       }
 
       .bingo-cell {
-        font-size: 0.55rem;
-        /* Shrink text further for small screens */
-        border-width: 1px;
-        /* Thinner border for cleaner look on small screens */
+        font-size: 0.65rem;
+        padding: 4px;
       }
 
       /* Adjust the background runes so they don't clutter the UI */
@@ -859,7 +868,9 @@
   <section class="section">
     <div class="content-box">
       <h2 class="section-title">The Prophecy</h2>
-      <div class="bingo-grid" id="bingoGrid"></div>
+      <div class="bingo-wrapper">
+        <div class="bingo-grid" id="bingoGrid"></div>
+      </div>
     </div>
   </section>
 

@@ -53,7 +53,7 @@
       position: absolute;
       width: 150px;
       height: 150px;
-      opacity: 0.2;
+      opacity: 0.1;
       animation: float 20s ease-in-out infinite;
     }
 
@@ -731,79 +731,78 @@
       .rune {
         width: 80px;
         height: 80px;
-        opacity: 0.25;
+        opacity: 0.1;
       }
 
-      /* Element 1: Top 130, Left 60 */
       .rune:nth-child(1) {
-        top: 12%;
-        left: 10%;
+        top: 5%;
+        left: 12%;
         --tx: -50%;
         --ty: -50%;
-        transform: translate(var(--tx), var(--ty));
+        animation-delay: -2s;
       }
 
-      /* Element 2: Top 71, Right 70 */
+      /* Element 2: Top right, further out */
       .rune:nth-child(2) {
-        top: 8.75%;
-        right: 19.23%;
+        top: 15%;
+        right: 8%;
         --tx: 50%;
         --ty: -50%;
-        transform: translate(var(--tx), var(--ty));
+        animation-delay: -5s;
       }
 
-      /* Element 3: Top 216, Right 164 */
+      /* Element 3: Drifting near the "ROBI" title */
       .rune:nth-child(3) {
-        top: 37%;
-        right: 55.05%;
-        --tx: 50%;
+        top: 32%;
+        left: 20%;
+        --tx: -50%;
         --ty: -50%;
-        transform: translate(var(--tx), var(--ty));
+        animation-delay: -8s;
       }
 
-      /* Element 4: Top 380, Right 67 */
+      /* Element 4: Right side, mid-screen */
       .rune:nth-child(4) {
-        top: 46.85%;
-        right: 18.40%;
+        top: 48%;
+        right: 15%;
         --tx: 50%;
         --ty: -50%;
-        transform: translate(var(--tx), var(--ty));
+        animation-delay: -1s;
       }
 
-      /* Element 5: Top 440, Left 87 */
+      /* Element 5: Crossing the center line lower down */
       .rune:nth-child(5) {
-        top: 54.25%;
-        left: 23.90%;
+        top: 62%;
+        left: 8%;
         --tx: -50%;
         --ty: -50%;
-        transform: translate(var(--tx), var(--ty));
+        animation-delay: -14s;
       }
 
-      /* Element 6: Top 540, Right 91 */
+      /* Element 6: Lower right cluster */
       .rune:nth-child(6) {
-        top: 66.58%;
-        right: 25.00%;
+        top: 75%;
+        right: 22%;
         --tx: 50%;
         --ty: -50%;
-        transform: translate(var(--tx), var(--ty));
+        animation-delay: -6s;
       }
 
-      /* Element 7: Top 622, Left 61 */
+      /* Element 7: Bottom left corner */
       .rune:nth-child(7) {
-        top: 76.70%;
-        left: 16.75%;
+        top: 88%;
+        left: 15%;
         --tx: -50%;
         --ty: -50%;
-        transform: translate(var(--tx), var(--ty));
+        animation-delay: -11s;
       }
 
-      /* Element 8: Top 707, Right 160 */
+      /* Element 8: Deep bottom right */
       .rune:nth-child(8) {
-        top: 87.18%;
-        right: 43.95%;
+        top: 92%;
+        right: 10%;
         --tx: 50%;
         --ty: -50%;
-        transform: translate(var(--tx), var(--ty));
+        animation-delay: -3s;
       }
 
       /* Forms need larger tap targets */

@@ -18,7 +18,7 @@ export async function onRequest(context) {
       SELECT gift_name, description, link
       FROM gifts
       WHERE person = ${person}
-      ORDER BY gift_name
+      ORDER BY display_order
     `;
     
     return new Response(JSON.stringify(gifts), {

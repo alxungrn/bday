@@ -107,6 +107,12 @@
       animation-delay: 18s;
     }
 
+    .rune:nth-child(8) {
+      top: 30%;
+      left: 50%;
+      animation-delay: 18s;
+    }
+
     @keyframes float {
 
       0%,
@@ -708,9 +714,76 @@
         height: 60px;
       }
 
-      .rune:nth-child(n+5) {
-        display: none;
-        /* Hide extra runes on mobile */
+      /* Element 1: Top 130, Left 60 */
+      .rune:nth-child(1) {
+        top: 12%;
+        left: 10%;
+        --tx: -50%;
+        --ty: -50%;
+        transform: translate(var(--tx), var(--ty));
+      }
+
+      /* Element 2: Top 71, Right 70 */
+      .rune:nth-child(2) {
+        top: 8.75%;
+        right: 19.23%;
+        --tx: 50%;
+        --ty: -50%;
+        transform: translate(var(--tx), var(--ty));
+      }
+
+      /* Element 3: Top 216, Right 164 */
+      .rune:nth-child(3) {
+        top: 37%;
+        right: 55.05%;
+        --tx: 50%;
+        --ty: -50%;
+        transform: translate(var(--tx), var(--ty));
+      }
+
+      /* Element 4: Top 380, Right 67 */
+      .rune:nth-child(4) {
+        top: 46.85%;
+        right: 18.40%;
+        --tx: 50%;
+        --ty: -50%;
+        transform: translate(var(--tx), var(--ty));
+      }
+
+      /* Element 5: Top 440, Left 87 */
+      .rune:nth-child(5) {
+        top: 54.25%;
+        left: 23.90%;
+        --tx: -50%;
+        --ty: -50%;
+        transform: translate(var(--tx), var(--ty));
+      }
+
+      /* Element 6: Top 540, Right 91 */
+      .rune:nth-child(6) {
+        top: 66.58%;
+        right: 25.00%;
+        --tx: 50%;
+        --ty: -50%;
+        transform: translate(var(--tx), var(--ty));
+      }
+
+      /* Element 7: Top 622, Left 61 */
+      .rune:nth-child(7) {
+        top: 76.70%;
+        left: 16.75%;
+        --tx: -50%;
+        --ty: -50%;
+        transform: translate(var(--tx), var(--ty));
+      }
+
+      /* Element 8: Top 707, Right 160 */
+      .rune:nth-child(8) {
+        top: 87.18%;
+        right: 43.95%;
+        --tx: 50%;
+        --ty: -50%;
+        transform: translate(var(--tx), var(--ty));
       }
 
       /* Forms need larger tap targets */
@@ -727,8 +800,8 @@
         padding: 1.2rem;
       }
 
-       .divider::before,
-       .divider::after {
+      .divider::before,
+      .divider::after {
         margin-top: -1px
       }
     }
@@ -749,6 +822,7 @@
     <div class="rune"><img src="rune5.svg" alt=""></div>
     <div class="rune"><img src="rune6.svg" alt=""></div>
     <div class="rune"><img src="rune7.svg" alt=""></div>
+    <div class="rune"><img src="rune8.svg" alt=""></div>
   </div>
 
   <!-- Ember particles -->

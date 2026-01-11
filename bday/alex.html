@@ -556,7 +556,7 @@
 
         async function loadGifts() {
             try {
-                const res = await fetch('/get-gifts');
+                const res = await fetch('/get-gifts-by-person');
                 if (!res.ok) return [];
                 return await res.json();
             } catch (error) {

@@ -223,7 +223,6 @@
       transform: translateY(-10px);
     }
 
-    /* CENTER OVERLAY - removed separator line */
     .center-title {
       position: absolute;
       top: 50%;
@@ -232,6 +231,7 @@
       z-index: 25;
       pointer-events: none;
       text-align: center;
+      margin-top: 0;
     }
 
     .center-title h1 {
@@ -255,6 +255,11 @@
 
       .side:hover {
         flex: 1.2;
+      }
+
+      .center-title {
+        top: 50%;
+        margin-top: 0;
       }
 
       body {
@@ -299,7 +304,7 @@
 
   <div class="split">
     <!-- ALEX — PARTY -->
-    <a class="side party" href="alex_bday_page.html">
+    <a class="side party" href="alex.html">
       <div class="neon-glow"></div>
       <div class="neon-glow"></div>
       <div class="blur-overlay"></div>
@@ -310,7 +315,7 @@
     </a>
 
     <!-- ROBI — FANTASY -->
-    <a class="side fantasy" href="robi_bday_page.html">
+    <a class="side fantasy" href="robi.html">
       <div class="ember-particles">
         <div class="ember"></div>
         <div class="ember"></div>

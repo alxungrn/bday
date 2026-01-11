@@ -540,39 +540,75 @@
       50% { transform: translateX(-50%) translateY(-15px); }
     }
 
-    @media (max-width: 768px) {
-      .rune {
-        width: 80px;
-        height: 80px;
-      }
+   /* MOBILE OPTIMIZATION */
+@media (max-width: 768px) {
+  /* Prevent horizontal scrolling */
+  body {
+    padding: 0;
+    margin: 0;
+  }
 
-      .rune:nth-child(1) { top: 5%; left: 5%; }
-      .rune:nth-child(2) { top: 20%; right: 10%; }
-      .rune:nth-child(3) { top: 40%; left: 10%; }
-      .rune:nth-child(4) { top: 60%; right: 15%; }
-      .rune:nth-child(5) { top: 75%; left: 20%; }
-      .rune:nth-child(6) { display: none; }
-      .rune:nth-child(7) { display: none; }
+  .section {
+    padding: 3rem 1rem; /* Reduce padding on small screens */
+  }
 
-      .bingo-grid {
-        gap: 0.5rem;
-      }
-      
-      .bingo-cell {
-        font-size: 0.6rem;
-        padding: 0.3rem;
-      }
+  /* Scale down the massive hero title */
+  .title-main {
+    font-size: 5rem; /* Fallback for very small screens */
+    font-size: clamp(4rem, 25vw, 8rem);
+    line-height: 1.1;
+    margin-bottom: 1rem;
+  }
 
-      .timeline {
-        padding-left: 2rem;
-      }
+  /* Adjust the timeline for narrow screens */
+  .timeline {
+    padding-left: 1.5rem;
+  }
 
-      .timeline-item {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.5rem;
-      }
-    }
+  .timeline-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .timeline-time {
+    font-size: 1.8rem;
+    min-width: auto;
+  }
+
+  /* Bingo Grid: Switch to 3 columns instead of 5 to keep text readable */
+  .bingo-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+  }
+  
+  .bingo-cell {
+    font-size: 0.7rem;
+    padding: 0.5rem;
+  }
+
+  /* Adjust the background runes so they don't clutter the UI */
+  .rune {
+    width: 60px;
+    height: 60px;
+  }
+
+  .rune:nth-child(n+5) { 
+    display: none; /* Hide extra runes on mobile */
+  }
+
+  /* Forms need larger tap targets */
+  input, textarea, .submit-btn {
+    font-size: 16px; /* Prevents iOS auto-zoom on focus */
+    padding: 1rem;
+  }
+
+  .submit-btn {
+    width: 100%;
+    padding: 1.2rem;
+  }
+}
 
     iframe {
         filter: grayscale(100%) invert(95%) contrast(100%);

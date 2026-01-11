@@ -434,40 +434,49 @@
 
     /* Bingo */
     .bingo-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr); /* Force 5 columns */
-  gap: 5px; /* Thinner gaps for mobile */
-  width: 100%;
-  max-width: 600px;
-  margin: 2rem auto;
-}
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0.8rem;
+      max-width: 800px;
+      margin: 3rem auto 0;
+    }
 
-.bingo-cell {
-  aspect-ratio: 1 / 1; /* Keeps cells perfectly square */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  background: linear-gradient(135deg, rgba(30,30,30,0.9), rgba(15,15,15,0.9));
-  border: 1px solid rgba(212, 175, 55, 0.4);
-  cursor: pointer;
-  padding: 4px;
-  
-  /* Responsive Font Scaling */
-  font-size: clamp(0.5rem, 2vw, 0.85rem); 
-  line-height: 1.2;
-  word-wrap: break-word;
-  overflow: hidden;
-  text-transform: uppercase;
-  transition: all 0.3s ease;
-}
+    .bingo-cell {
+      aspect-ratio: 1;
+      background: linear-gradient(135deg, rgba(30,30,30,0.9), rgba(15,15,15,0.9));
+      border: 2px solid rgba(212, 175, 55, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      padding: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
 
-/* Ensure the "Free Space" stands out but stays square */
-.bingo-cell.free {
-  background: linear-gradient(135deg, #8b0000, #a00);
-  color: #fff;
-  border-color: #ff6b35;
-}
+    .bingo-cell:hover {
+      border-color: var(--gold);
+      transform: scale(1.05);
+      box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+    }
+
+    .bingo-cell.marked {
+      background: linear-gradient(135deg, #8b6914, var(--gold));
+      color: #0a0a0a;
+      font-weight: 800;
+      border-color: var(--gold);
+      box-shadow: 0 0 40px rgba(212, 175, 55, 0.5);
+    }
+
+    .bingo-cell.free {
+      background: linear-gradient(135deg, var(--blood), #a00);
+      color: var(--ash);
+      font-weight: 800;
+      border-color: var(--blood);
+    }
 
     /* RSVP List */
     .rsvp-list {
@@ -569,13 +578,14 @@
   }
 
   /* Bingo Grid: Switch to 3 columns instead of 5 to keep text readable */
-.bingo-grid {
-    gap: 3px; /* Even smaller gaps to save space */
+  .bingo-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
   }
   
   .bingo-cell {
-    font-size: 0.55rem; /* Smallest readable size for 5-across */
-    padding: 2px;
+    font-size: 0.7rem;
+    padding: 0.5rem;
   }
 
   /* Adjust the background runes so they don't clutter the UI */

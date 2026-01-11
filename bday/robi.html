@@ -536,25 +536,25 @@
     }
 
     .bingo-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 0.8rem;
-      max-width: 800px;
-      margin: 3rem auto 0;
-    }
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  min-width: 500px; /* This ensures it stays a readable size on small phones */
+  max-width: 800px;
+  margin: 0 auto;
+}
 
     .bingo-cell {
-      aspect-ratio: 1;
+      aspect-ratio: 1 / 1;
       background: linear-gradient(135deg, rgba(30, 30, 30, 0.9), rgba(15, 15, 15, 0.9));
       border: 2px solid rgba(212, 175, 55, 0.3);
       display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      font-size: 0.8rem;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      padding: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 0.8rem;
+  padding: 8px;
+  word-break: break-word;
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
@@ -689,7 +689,17 @@
         min-width: auto;
       }
 
-    
+      /* Bingo Grid: Switch to 3 columns instead of 5 to keep text readable */
+      .bingo-grid {
+        min-width: 450px;
+        /* Slight shrink for smaller screens but stays wide enough to scroll */
+        gap: 5px;
+      }
+
+      .bingo-cell {
+        font-size: 0.65rem;
+        padding: 4px;
+      }
 
       /* Adjust the background runes so they don't clutter the UI */
       .rune {

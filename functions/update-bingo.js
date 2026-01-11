@@ -1,13 +1,39 @@
-const { neon } = require('@neondatabase/serverless');
+import { neon } from '@neondatabase/serverless';
 
-exports.handler = async (event) => {
-  if (event.httpMethod !== 'POST') {
-    return { statusCode: 405, body: 'Method Not Allowed' };
+export async function onRequest(context) {
+  // Handle CORS preflight
+  if (context.request.method === 'OPTIONS') {
+    return new Response(null, {
+      status: 204,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'POST, OPTIONS',
+        'Access-Control-Allow-Headers': 'Content-Type'
+      }
+    });
+  }
+
+  if (context.request.method !== 'POST') {
+    return new Response('Method Not Allowed', { 
+      status: 405,
+      headers: { 'Content-Type': 'application/json' }
+    });
   }
 
   try {
-    const { cellIndex, checked } = JSON.parse(event.body);
-    const sql = neon(process.env.NETLIFY_DATABASE_URL_UNPOOLED);
+    const { cellIndex, checked } = await context.request.json();
+    
+    // Validate inputs
+    if (cellIndex === undefined || checked === undefined) {
+      return new Response(JSON.stringify({ 
+        error: 'Missing required fields: cellIndex and checked' 
+      }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' }
+      });
+    }
+
+    const sql = neon(context.env.NETLIFY_DATABASE_URL_UNPOOLED);
     
     await sql`
       UPDATE bingo
@@ -15,15 +41,21 @@ exports.handler = async (event) => {
       WHERE cell_index = ${cellIndex}
     `;
     
-    return {
-      statusCode: 200,
-      body: JSON.stringify({ success: true })
-    };
+    return new Response(JSON.stringify({ success: true }), {
+      status: 200,
+      headers: { 
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      }
+    });
   } catch (error) {
-    console.error('Error:', error);
-    return {
-      statusCode: 500,
-      body: JSON.stringify({ error: 'Failed to update bingo' })
-    };
+    console.error('Error updating bingo:', error);
+    return new Response(JSON.stringify({ 
+      error: 'Failed to update bingo',
+      details: error.message 
+    }), {
+      status: 500,
+      headers: { 'Content-Type': 'application/json' }
+    });
   }
-};
+}

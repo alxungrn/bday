@@ -356,20 +356,23 @@
       z-index: 25;
       pointer-events: none;
       text-align: center;
-      width: 100%;
+      width: 300px;
       /* Ensure it spans the width to center the text inside */
     }
 
     .center-title h1 {
       font-size: clamp(1.2rem, 3vw, 1.8rem);
       letter-spacing: 0.5em;
-      opacity: 0.8;
+      opacity: 0.6;
       /* Increased slightly for legibility */
       font-weight: 700;
       text-transform: uppercase;
       color: white;
-      text-shadow: 0 0 20px rgba(0, 0, 0, 1);
-      /* Remove mix-blend-mode if the text disappears on certain backgrounds in Safari */
+      text-shadow:
+        0 0 20px rgba(0, 0, 0, 0.8),
+        2px 2px 4px rgba(0, 0, 0, 0.9);
+      mix-blend-mode: difference;
+      word-wrap: normal;
     }
 
     /* MOBILE */
@@ -441,7 +444,7 @@
 
 <body>
   <div class="center-title">
-    <h1>Choose Your Path</h1>
+    <h1>Choose Your Character</h1>
   </div>
 
   <div class="split">

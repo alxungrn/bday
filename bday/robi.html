@@ -53,7 +53,7 @@
       position: absolute;
       width: 150px;
       height: 150px;
-      opacity: 0.06;
+      opacity: 0.2;
       animation: float 20s ease-in-out infinite;
     }
 
@@ -62,14 +62,16 @@
       height: 100%;
       object-fit: contain;
       filter:
-        brightness(0) saturate(100%) invert(71%) sepia(47%) saturate(524%) hue-rotate(9deg) brightness(92%) contrast(87%) drop-shadow(0 0 30px rgba(255, 107, 53, 0.3));
+        brightness(0) saturate(100%) invert(85%) sepia(20%) saturate(1000%) hue-rotate(5deg) brightness(1.1) contrast(90%) drop-shadow(0 0 30px rgba(255, 107, 53, 0.3));
     }
 
+    /* Unique offsets to make them move independently */
     .rune:nth-child(1) {
       top: 10%;
       left: 8%;
       --tx: -50%;
       --ty: -50%;
+      animation-delay: 0s;
     }
 
     .rune:nth-child(2) {
@@ -77,6 +79,7 @@
       right: 12%;
       --tx: 50%;
       --ty: -50%;
+      animation-delay: -3s;
     }
 
     .rune:nth-child(3) {
@@ -84,6 +87,7 @@
       left: 15%;
       --tx: -50%;
       --ty: -50%;
+      animation-delay: -7s;
     }
 
     .rune:nth-child(4) {
@@ -91,6 +95,7 @@
       right: 5%;
       --tx: 50%;
       --ty: -50%;
+      animation-delay: -12s;
     }
 
     .rune:nth-child(5) {
@@ -98,6 +103,7 @@
       left: 10%;
       --tx: -50%;
       --ty: -50%;
+      animation-delay: -5s;
     }
 
     .rune:nth-child(6) {
@@ -105,6 +111,7 @@
       right: 15%;
       --tx: 50%;
       --ty: 50%;
+      animation-delay: -9s;
     }
 
     .rune:nth-child(7) {
@@ -112,6 +119,7 @@
       left: 20%;
       --tx: -50%;
       --ty: 50%;
+      animation-delay: -2s;
     }
 
     .rune:nth-child(8) {
@@ -119,19 +127,22 @@
       left: 45%;
       --tx: -50%;
       --ty: -50%;
+      animation-delay: -15s;
     }
 
     @keyframes float {
 
       0%,
       100% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 0.03;
+        /* Uses the unique variables for each rune */
+        transform: translate(var(--tx), var(--ty)) translateY(0) rotate(0deg);
+        opacity: 0.15;
       }
 
       50% {
-        transform: translateY(-30px) rotate(5deg);
-        opacity: 0.08;
+        /* Adds the bobbing and rotation while staying at its coordinate */
+        transform: translate(var(--tx), var(--ty)) translateY(-30px) rotate(5deg);
+        opacity: 0.3;
       }
     }
 
@@ -718,8 +729,9 @@
 
       /* Adjust the background runes so they don't clutter the UI */
       .rune {
-        width: 60px;
-        height: 60px;
+        width: 80px;
+        height: 80px;
+        opacity: 0.25;
       }
 
       /* Element 1: Top 130, Left 60 */

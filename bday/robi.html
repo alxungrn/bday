@@ -578,15 +578,16 @@
   }
 
   /* Bingo Grid: Switch to 3 columns instead of 5 to keep text readable */
- .bingo-grid {
-                grid-template-columns: repeat(5, 1fr);
-                gap: 0.3rem;
-            }
-            
-            .bingo-cell {
-                font-size: 0.5rem;
-                padding: 0.3rem;
-            }
+  .bingo-grid {
+    grid-template-columns: repeat(5, 1fr) !important; /* Force 5 columns */
+    gap: 4px; /* Tighter gaps to save space */
+  }
+  
+  .bingo-cell {
+    font-size: 0.55rem; /* Shrink text further for small screens */
+    padding: 3px;
+    border-width: 1px; /* Thinner border for cleaner look on small screens */
+  }
 
   /* Adjust the background runes so they don't clutter the UI */
   .rune {

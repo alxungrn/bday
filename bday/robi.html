@@ -767,16 +767,26 @@
       }
     }
 
-    async function loadGifts() {
-      try {
-        const res = await fetch('/get-gifts-by-person?person=robi');
-        if (!res.ok) return [];
-        return await res.json();
-      } catch (error) {
-        console.error('Error loading gifts:', error);
-        return [];
-      }
-    }
+       async function loadGifts() {
+            try {
+                // 1. Grab the 'person' value from the browser's current URL
+                const urlParams = new URLSearchParams(window.location.search);
+                const person = urlParams.get('person');
+
+                // 2. Use BACKTICKS ( ` ) for the URL string
+                const res = await fetch(`/get-gifts-by-person?person=${person}`);
+                
+                if (!res.ok) {
+                    console.error('Server responded with error:', res.status);
+                    return [];
+                }
+                
+                return await res.json();
+            } catch (error) {
+                console.error('Error loading gifts:', error);
+                return [];
+            }
+        }
 
     async function displayRSVPs() {
       const rsvps = await loadRSVPs();
@@ -818,26 +828,28 @@
       });
     }
 
-       async function loadGifts() {
-            try {
-                // 1. Grab the 'person' value from the browser's current URL
-                const urlParams = new URLSearchParams(window.location.search);
-                const person = urlParams.get('person');
-
-                // 2. Use BACKTICKS ( ` ) for the URL string
-                const res = await fetch(`/get-gifts-by-person?person=${person}`);
-                
-                if (!res.ok) {
-                    console.error('Server responded with error:', res.status);
-                    return [];
-                }
-                
-                return await res.json();
-            } catch (error) {
-                console.error('Error loading gifts:', error);
-                return [];
-            }
+    async function initGifts() {
+      const gifts = await loadGifts();
+      const grid = document.getElementById('giftGrid');
+      
+      grid.innerHTML = gifts.map(gift => {
+        if (gift.link) {
+          return `
+            <a href="${gift.link}" target="_blank" class="gift-box">
+              <h3>${gift.gift_name}</h3>
+              <p>${gift.description}</p>
+            </a>
+          `;
+        } else {
+          return `
+            <div class="gift-box">
+              <h3>${gift.gift_name}</h3>
+              <p>${gift.description}</p>
+            </div>
+          `;
         }
+      }).join('');
+    }
 
     document.getElementById('rsvpForm').addEventListener('submit', async function(e) {
       e.preventDefault();

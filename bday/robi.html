@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -60,29 +61,64 @@
       width: 100%;
       height: 100%;
       object-fit: contain;
-      filter: 
-        brightness(0) 
-        saturate(100%) 
-        invert(71%) 
-        sepia(47%) 
-        saturate(524%) 
-        hue-rotate(9deg) 
-        brightness(92%) 
-        contrast(87%)
-        drop-shadow(0 0 30px rgba(255, 107, 53, 0.3));
+      filter:
+        brightness(0) saturate(100%) invert(71%) sepia(47%) saturate(524%) hue-rotate(9deg) brightness(92%) contrast(87%) drop-shadow(0 0 30px rgba(255, 107, 53, 0.3));
     }
 
-    .rune:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s; }
-    .rune:nth-child(2) { top: 30%; right: 10%; animation-delay: 3s; }
-    .rune:nth-child(3) { top: 60%; left: 15%; animation-delay: 6s; }
-    .rune:nth-child(4) { top: 80%; right: 20%; animation-delay: 9s; }
-    .rune:nth-child(5) { top: 45%; left: 50%; animation-delay: 12s; }
-    .rune:nth-child(6) { top: 25%; left: 70%; animation-delay: 15s; }
-    .rune:nth-child(7) { top: 70%; left: 60%; animation-delay: 18s; }
+    .rune:nth-child(1) {
+      top: 10%;
+      left: 5%;
+      animation-delay: 0s;
+    }
+
+    .rune:nth-child(2) {
+      top: 30%;
+      right: 10%;
+      animation-delay: 3s;
+    }
+
+    .rune:nth-child(3) {
+      top: 60%;
+      left: 15%;
+      animation-delay: 6s;
+    }
+
+    .rune:nth-child(4) {
+      top: 80%;
+      right: 20%;
+      animation-delay: 9s;
+    }
+
+    .rune:nth-child(5) {
+      top: 45%;
+      left: 50%;
+      animation-delay: 12s;
+    }
+
+    .rune:nth-child(6) {
+      top: 25%;
+      left: 70%;
+      animation-delay: 15s;
+    }
+
+    .rune:nth-child(7) {
+      top: 70%;
+      left: 60%;
+      animation-delay: 18s;
+    }
 
     @keyframes float {
-      0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.03; }
-      50% { transform: translateY(-30px) rotate(5deg); opacity: 0.08; }
+
+      0%,
+      100% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.03;
+      }
+
+      50% {
+        transform: translateY(-30px) rotate(5deg);
+        opacity: 0.08;
+      }
     }
 
     /* Particle embers */
@@ -104,30 +140,71 @@
       animation: rise 15s linear infinite;
     }
 
-    .ember-particle:nth-child(odd) { animation-duration: 12s; }
-    .ember-particle:nth-child(3n) { animation-duration: 18s; }
+    .ember-particle:nth-child(odd) {
+      animation-duration: 12s;
+    }
+
+    .ember-particle:nth-child(3n) {
+      animation-duration: 18s;
+    }
 
     @keyframes rise {
-      0% { transform: translateY(100vh) translateX(0); opacity: 0; }
-      10% { opacity: 1; }
-      90% { opacity: 1; }
-      100% { transform: translateY(-100vh) translateX(50px); opacity: 0; }
+      0% {
+        transform: translateY(100vh) translateX(0);
+        opacity: 0;
+      }
+
+      10% {
+        opacity: 1;
+      }
+
+      90% {
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateY(-100vh) translateX(50px);
+        opacity: 0;
+      }
     }
 
     /* Generate ember particles */
-    .ember-particle:nth-child(1) { left: 10%; animation-delay: 0s; }
-    .ember-particle:nth-child(2) { left: 25%; animation-delay: 3s; }
-    .ember-particle:nth-child(3) { left: 40%; animation-delay: 6s; }
-    .ember-particle:nth-child(4) { left: 60%; animation-delay: 9s; }
-    .ember-particle:nth-child(5) { left: 75%; animation-delay: 12s; }
-    .ember-particle:nth-child(6) { left: 90%; animation-delay: 4s; }
+    .ember-particle:nth-child(1) {
+      left: 10%;
+      animation-delay: 0s;
+    }
+
+    .ember-particle:nth-child(2) {
+      left: 25%;
+      animation-delay: 3s;
+    }
+
+    .ember-particle:nth-child(3) {
+      left: 40%;
+      animation-delay: 6s;
+    }
+
+    .ember-particle:nth-child(4) {
+      left: 60%;
+      animation-delay: 9s;
+    }
+
+    .ember-particle:nth-child(5) {
+      left: 75%;
+      animation-delay: 12s;
+    }
+
+    .ember-particle:nth-child(6) {
+      left: 90%;
+      animation-delay: 4s;
+    }
 
     /* Vignette */
     body::before {
       content: '';
       position: fixed;
       inset: 0;
-      background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.8) 100%);
+      background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
       pointer-events: none;
       z-index: 2;
     }
@@ -167,8 +244,15 @@
     }
 
     @keyframes glow {
-      0%, 100% { filter: brightness(1); }
-      50% { filter: brightness(1.2); }
+
+      0%,
+      100% {
+        filter: brightness(1);
+      }
+
+      50% {
+        filter: brightness(1.2);
+      }
     }
 
     .subtitle {
@@ -207,8 +291,13 @@
       font-size: 1.2rem;
     }
 
-    .divider::before { left: -10px; }
-    .divider::after { right: -10px; }
+    .divider::before {
+      left: -10px;
+    }
+
+    .divider::after {
+      right: -10px;
+    }
 
     /* CONTENT */
     .content-box {
@@ -231,16 +320,16 @@
 
     /* Scroll stone panels */
     .scroll-panel {
-      background: 
-        linear-gradient(180deg, rgba(30,30,30,0.95), rgba(20,20,20,0.95)),
+      background:
+        linear-gradient(180deg, rgba(30, 30, 30, 0.95), rgba(20, 20, 20, 0.95)),
         url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><rect fill="%23222" width="100" height="100"/><path d="M0 0L100 100M100 0L0 100" stroke="%23111" stroke-width="0.5" opacity="0.1"/></svg>');
       border: 2px solid rgba(212, 175, 55, 0.3);
       border-radius: 4px;
       padding: 2rem;
       margin-bottom: 2rem;
-      box-shadow: 
-        inset 0 0 50px rgba(0,0,0,0.8),
-        0 10px 60px rgba(0,0,0,0.9),
+      box-shadow:
+        inset 0 0 50px rgba(0, 0, 0, 0.8),
+        0 10px 60px rgba(0, 0, 0, 0.9),
         0 0 20px rgba(212, 175, 55, 0.1);
       position: relative;
       word-wrap: break-word;
@@ -330,13 +419,13 @@
     }
 
     .gift-box {
-      background: linear-gradient(135deg, rgba(30,30,30,0.9), rgba(15,15,15,0.9));
+      background: linear-gradient(135deg, rgba(30, 30, 30, 0.9), rgba(15, 15, 15, 0.9));
       border: 2px solid rgba(212, 175, 55, 0.3);
       padding: 2rem;
       text-decoration: none;
       color: inherit;
       transition: all 0.4s ease;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
       position: relative;
       overflow: hidden;
     }
@@ -384,7 +473,8 @@
       font-weight: 600;
     }
 
-    input, textarea {
+    input,
+    textarea {
       width: 100%;
       padding: 1.2rem;
       background: rgba(10, 10, 10, 0.8);
@@ -395,7 +485,8 @@
       transition: all 0.3s ease;
     }
 
-    input:focus, textarea:focus {
+    input:focus,
+    textarea:focus {
       outline: none;
       border-color: var(--gold);
       box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
@@ -443,7 +534,7 @@
 
     .bingo-cell {
       aspect-ratio: 1;
-      background: linear-gradient(135deg, rgba(30,30,30,0.9), rgba(15,15,15,0.9));
+      background: linear-gradient(135deg, rgba(30, 30, 30, 0.9), rgba(15, 15, 15, 0.9));
       border: 2px solid rgba(212, 175, 55, 0.3);
       display: flex;
       align-items: center;
@@ -495,9 +586,9 @@
     .rsvp-item {
       padding: 1.5rem;
       margin-bottom: 1.5rem;
-      background: linear-gradient(135deg, rgba(30,30,30,0.6), rgba(15,15,15,0.6));
+      background: linear-gradient(135deg, rgba(30, 30, 30, 0.6), rgba(15, 15, 15, 0.6));
       border-left: 4px solid var(--gold);
-      box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
     }
 
     .rsvp-item p {
@@ -536,84 +627,102 @@
     }
 
     @keyframes bounce {
-      0%, 100% { transform: translateX(-50%) translateY(0); }
-      50% { transform: translateX(-50%) translateY(-15px); }
+
+      0%,
+      100% {
+        transform: translateX(-50%) translateY(0);
+      }
+
+      50% {
+        transform: translateX(-50%) translateY(-15px);
+      }
     }
 
-   /* MOBILE OPTIMIZATION */
-@media (max-width: 768px) {
-  /* Prevent horizontal scrolling */
-  body {
-    padding: 0;
-    margin: 0;
-  }
+    /* MOBILE OPTIMIZATION */
+    @media (max-width: 768px) {
 
-  .section {
-    padding: 3rem 1rem; /* Reduce padding on small screens */
-  }
+      /* Prevent horizontal scrolling */
+      body {
+        padding: 0;
+        margin: 0;
+      }
 
-  /* Scale down the massive hero title */
-  .title-main {
-    font-size: 5rem; /* Fallback for very small screens */
-    font-size: clamp(4rem, 25vw, 8rem);
-    line-height: 1.1;
-    margin-bottom: 1rem;
-  }
+      .section {
+        padding: 3rem 1rem;
+        /* Reduce padding on small screens */
+      }
 
-  /* Adjust the timeline for narrow screens */
-  .timeline {
-    padding-left: 1.5rem;
-  }
+      /* Scale down the massive hero title */
+      .title-main {
+        font-size: 5rem;
+        /* Fallback for very small screens */
+        font-size: clamp(4rem, 25vw, 8rem);
+        line-height: 1.1;
+        margin-bottom: 1rem;
+      }
 
-  .timeline-item {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
-    margin-bottom: 2rem;
-  }
+      /* Adjust the timeline for narrow screens */
+      .timeline {
+        padding-left: 1.5rem;
+      }
 
-  .timeline-time {
-    font-size: 1.8rem;
-    min-width: auto;
-  }
+      .timeline-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+        margin-bottom: 2rem;
+      }
 
-  /* Bingo Grid: Switch to 3 columns instead of 5 to keep text readable */
-  .bingo-grid {
-    grid-template-columns: repeat(5, 1fr) !important; /* Force 5 columns */
-    gap: 4px; /* Tighter gaps to save space */
-  }
-  
-  .bingo-cell {
-    font-size: 0.55rem; /* Shrink text further for small screens */
-    padding: 3px;
-    border-width: 1px; /* Thinner border for cleaner look on small screens */
-  }
+      .timeline-time {
+        font-size: 1.8rem;
+        min-width: auto;
+      }
 
-  /* Adjust the background runes so they don't clutter the UI */
-  .rune {
-    width: 60px;
-    height: 60px;
-  }
+      /* Bingo Grid: Switch to 3 columns instead of 5 to keep text readable */
+      .bingo-grid {
+        grid-template-columns: repeat(5, 1fr) !important;
+        /* Force 5 columns */
+        gap: 4px;
+        /* Tighter gaps to save space */
+      }
 
-  .rune:nth-child(n+5) { 
-    display: none; /* Hide extra runes on mobile */
-  }
+      .bingo-cell {
+        font-size: 0.55rem;
+        /* Shrink text further for small screens */
+        padding: 3px;
+        border-width: 1px;
+        /* Thinner border for cleaner look on small screens */
+      }
 
-  /* Forms need larger tap targets */
-  input, textarea, .submit-btn {
-    font-size: 16px; /* Prevents iOS auto-zoom on focus */
-    padding: 1rem;
-  }
+      /* Adjust the background runes so they don't clutter the UI */
+      .rune {
+        width: 60px;
+        height: 60px;
+      }
 
-  .submit-btn {
-    width: 100%;
-    padding: 1.2rem;
-  }
-}
+      .rune:nth-child(n+5) {
+        display: none;
+        /* Hide extra runes on mobile */
+      }
+
+      /* Forms need larger tap targets */
+      input,
+      textarea,
+      .submit-btn {
+        font-size: 16px;
+        /* Prevents iOS auto-zoom on focus */
+        padding: 1rem;
+      }
+
+      .submit-btn {
+        width: 100%;
+        padding: 1.2rem;
+      }
+    }
 
     iframe {
-        filter: grayscale(100%) invert(95%) contrast(100%);
-        }
+      filter: grayscale(100%) invert(95%) contrast(100%);
+    }
   </style>
 </head>
 
@@ -669,7 +778,9 @@
         <p>Third Floor, Chamber VI</p>
         <p>Intercom III</p>
         <p>Near the Ancient Squares of Muncii and Iancului</p>
-        <iframe width="100%" height="450px" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB2NIWI3Tv9iDPrlnowr_0ZqZWoAQydKJU&q=strada%20teleajen%2050&maptype=roadmap" allowfullscreen></iframe>
+        <iframe width="100%" height="450px" frameborder="0" style="border:0"
+          src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB2NIWI3Tv9iDPrlnowr_0ZqZWoAQydKJU&q=strada%20teleajen%2050&maptype=roadmap"
+          allowfullscreen></iframe>
       </div>
     </div>
   </section>
@@ -804,37 +915,37 @@
       }
     }
 
-       async function loadGifts() {
-            try {
-                // 1. Grab the 'person' value from the browser's current URL
-                const urlParams = new URLSearchParams(window.location.search);
-                const person = urlParams.get('person');
+    async function loadGifts() {
+      try {
+        // 1. Grab the 'person' value from the browser's current URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const person = urlParams.get('person');
 
-                // 2. Use BACKTICKS ( ` ) for the URL string
-                const res = await fetch(`/get-gifts-by-person?person=${person}`);
-                
-                if (!res.ok) {
-                    console.error('Server responded with error:', res.status);
-                    return [];
-                }
-                
-                return await res.json();
-            } catch (error) {
-                console.error('Error loading gifts:', error);
-                return [];
-            }
+        // 2. Use BACKTICKS ( ` ) for the URL string
+        const res = await fetch(`/get-gifts-by-person?person=${person}`);
+
+        if (!res.ok) {
+          console.error('Server responded with error:', res.status);
+          return [];
         }
+
+        return await res.json();
+      } catch (error) {
+        console.error('Error loading gifts:', error);
+        return [];
+      }
+    }
 
     async function displayRSVPs() {
       const rsvps = await loadRSVPs();
       const container = document.getElementById('rsvpItems');
       const listSection = document.getElementById('rsvpList');
-      
+
       if (rsvps.length === 0) {
         listSection.style.display = 'none';
         return;
       }
-      
+
       listSection.style.display = 'block';
       container.innerHTML = rsvps.map(rsvp => `
         <div class="rsvp-item">
@@ -847,18 +958,18 @@
     async function initBingo() {
       const bingoData = await loadBingo();
       const grid = document.getElementById('bingoGrid');
-      
+
       grid.innerHTML = bingoData.map((cell) => {
         const isFree = cell.bingo_text === 'free space';
         const classes = `bingo-cell ${isFree ? 'free' : ''} ${cell.checked ? 'marked' : ''}`;
         return `<div class="${classes}" data-index="${cell.cell_index}">${cell.bingo_text}</div>`;
       }).join('');
-      
+
       document.querySelectorAll('.bingo-cell:not(.free)').forEach(cell => {
-        cell.addEventListener('click', async function() {
+        cell.addEventListener('click', async function () {
           const index = parseInt(this.dataset.index);
           const isChecked = this.classList.contains('marked');
-          
+
           this.classList.toggle('marked');
           await updateBingoCell(index, !isChecked);
         });
@@ -868,7 +979,7 @@
     async function initGifts() {
       const gifts = await loadGifts();
       const grid = document.getElementById('giftGrid');
-      
+
       grid.innerHTML = gifts.map(gift => {
         if (gift.link) {
           return `
@@ -888,19 +999,19 @@
       }).join('');
     }
 
-    document.getElementById('rsvpForm').addEventListener('submit', async function(e) {
+    document.getElementById('rsvpForm').addEventListener('submit', async function (e) {
       e.preventDefault();
-      
+
       const name = document.getElementById('name').value;
       const coming = document.getElementById('coming').value;
       const drinks = document.getElementById('drinks').value;
-      
+
       const confirmation = document.getElementById('confirmation');
       confirmation.textContent = 'Inscribing...';
       confirmation.style.display = 'block';
-      
+
       const saved = await saveRSVP(name, coming, drinks);
-      
+
       if (saved) {
         confirmation.textContent = 'Your pledge has been recorded';
         this.reset();
@@ -920,4 +1031,5 @@
     });
   </script>
 </body>
+
 </html>

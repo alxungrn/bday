@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>alex's birthday</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500&family=Raleway:wght@200;300;400&display=swap');
-        
+
+
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             background: #fff;
             color: #444;
@@ -22,7 +25,7 @@
             line-height: 1.8;
             overflow-x: hidden;
         }
-        
+
         body::before {
             content: '';
             position: fixed;
@@ -30,14 +33,14 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: 
+            background:
                 url('https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?w=1600') center/cover fixed,
-                linear-gradient(135deg, rgba(255,182,193,0.4), rgba(176,224,230,0.4));
+                linear-gradient(135deg, rgba(255, 182, 193, 0.4), rgba(176, 224, 230, 0.4));
             background-blend-mode: overlay;
             z-index: -1;
             opacity: 0.3;
         }
-        
+
         .container {
             max-width: 600px;
             margin: 80px auto;
@@ -45,14 +48,14 @@
             background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(10px);
         }
-        
+
         .header {
             text-align: center;
             margin-bottom: 60px;
             padding-bottom: 30px;
             border-bottom: 1px solid #e0e0e0;
         }
-        
+
         .title {
             font-family: 'Quicksand', sans-serif;
             font-size: 14px;
@@ -62,7 +65,7 @@
             margin-bottom: 15px;
             color: #888;
         }
-        
+
         .subtitle {
             font-size: 9px;
             letter-spacing: 4px;
@@ -70,12 +73,12 @@
             color: #aaa;
             margin-top: 10px;
         }
-        
+
         .section {
             margin-bottom: 50px;
             padding: 20px 0;
         }
-        
+
         .section-title {
             font-family: 'Quicksand', sans-serif;
             font-size: 11px;
@@ -87,14 +90,14 @@
             padding-bottom: 8px;
             border-bottom: 1px solid #f0f0f0;
         }
-        
+
         .detail-box {
             padding: 15px;
             margin-bottom: 15px;
             border-left: 1px solid #ddd;
             padding-left: 20px;
         }
-        
+
         .detail-box h3 {
             font-family: 'Quicksand', sans-serif;
             font-size: 10px;
@@ -104,38 +107,38 @@
             color: #999;
             margin-bottom: 8px;
         }
-        
+
         .detail-box p {
             font-size: 10px;
             color: #666;
             margin-bottom: 5px;
         }
-        
+
         .timeline-item {
             display: flex;
             gap: 15px;
             margin-bottom: 12px;
             font-size: 10px;
         }
-        
+
         .timeline-time {
             font-family: 'Quicksand', sans-serif;
             min-width: 50px;
             color: #aaa;
             font-weight: 400;
         }
-        
+
         .timeline-text {
             color: #666;
         }
-        
+
         .gift-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
             gap: 15px;
             margin-top: 20px;
         }
-        
+
         .gift-item {
             padding: 15px;
             border: 1px solid #f0f0f0;
@@ -144,11 +147,11 @@
             transition: border-color 0.3s ease;
             display: block;
         }
-        
+
         .gift-item:hover {
             border-color: #ddd;
         }
-        
+
         .gift-item h3 {
             font-family: 'Quicksand', sans-serif;
             font-size: 10px;
@@ -157,17 +160,17 @@
             margin-bottom: 8px;
             color: #888;
         }
-        
+
         .gift-item p {
             font-size: 9px;
             color: #aaa;
             line-height: 1.6;
         }
-        
+
         .form-field {
             margin-bottom: 20px;
         }
-        
+
         .form-field label {
             display: block;
             font-family: 'Quicksand', sans-serif;
@@ -177,7 +180,7 @@
             color: #999;
             margin-bottom: 8px;
         }
-        
+
         .form-field input,
         .form-field textarea {
             width: 100%;
@@ -188,18 +191,18 @@
             font-size: 10px;
             color: #666;
         }
-        
+
         .form-field input:focus,
         .form-field textarea:focus {
             outline: none;
             border-color: #ddd;
         }
-        
+
         .form-field textarea {
             resize: vertical;
             min-height: 80px;
         }
-        
+
         .submit-btn {
             padding: 12px 30px;
             border: 1px solid #ddd;
@@ -212,12 +215,12 @@
             cursor: pointer;
             transition: all 0.3s ease;
         }
-        
+
         .submit-btn:hover {
             background: #f5f5f5;
             border-color: #ccc;
         }
-        
+
         .bingo-grid {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
@@ -225,7 +228,7 @@
             margin-top: 20px;
             max-width: 500px;
         }
-        
+
         .bingo-cell {
             aspect-ratio: 1;
             border: 1px solid #e0e0e0;
@@ -239,22 +242,22 @@
             transition: all 0.3s ease;
             background: #fafafa;
         }
-        
+
         .bingo-cell:hover {
             background: #f0f0f0;
         }
-        
+
         .bingo-cell.marked {
             background: #e8e8e8;
             border-color: #ccc;
         }
-        
+
         .bingo-cell.free {
             background: #f5f5f5;
             font-style: italic;
             color: #aaa;
         }
-        
+
         .confirmation {
             margin-top: 15px;
             padding: 12px;
@@ -264,13 +267,13 @@
             text-align: center;
             color: #888;
         }
-        
+
         .rsvp-list {
             margin-top: 30px;
             padding-top: 20px;
             border-top: 1px solid #f0f0f0;
         }
-        
+
         .rsvp-list h3 {
             font-family: 'Quicksand', sans-serif;
             font-size: 10px;
@@ -279,20 +282,20 @@
             color: #999;
             margin-bottom: 15px;
         }
-        
+
         .rsvp-item {
             padding: 10px;
             margin-bottom: 10px;
             border-left: 1px solid #e0e0e0;
             padding-left: 15px;
         }
-        
+
         .rsvp-item p {
             font-size: 9px;
             color: #888;
             margin-bottom: 3px;
         }
-        
+
         .note {
             font-size: 9px;
             color: #aaa;
@@ -300,23 +303,23 @@
             margin-top: 10px;
             text-align: center;
         }
-        
+
         iframe {
             margin-top: 15px;
             border: 1px solid #f0f0f0;
             filter: grayscale(80%) contrast(90%);
         }
-        
+
         @media (max-width: 768px) {
             .container {
                 margin: 40px auto;
                 padding: 30px 15px;
             }
-            
+
             .bingo-grid {
                 gap: 3px;
             }
-            
+
             .bingo-cell {
                 font-size: 7px;
                 padding: 3px;
@@ -324,6 +327,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <!-- Header -->
@@ -335,27 +339,29 @@
         <!-- Details -->
         <div class="section">
             <div class="section-title">details</div>
-            
+
             <div class="detail-box">
                 <h3>when</h3>
                 <p>april 18, 2026</p>
                 <p>time tbd, probably evening</p>
             </div>
-            
+
             <div class="detail-box">
                 <h3>where</h3>
                 <p>strada teleajen 50, floor 3, apt 6</p>
                 <p>intercom: 3</p>
                 <p>metro: piata muncii / piata iancului</p>
-                
-                <iframe width="100%" height="300px" frameborder="0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB2NIWI3Tv9iDPrlnowr_0ZqZWoAQydKJU&q=strada%20teleajen%2050&maptype=roadmap" allowfullscreen></iframe>
+
+                <iframe width="100%" height="300px" frameborder="0"
+                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB2NIWI3Tv9iDPrlnowr_0ZqZWoAQydKJU&q=strada%20teleajen%2050&maptype=roadmap"
+                    allowfullscreen></iframe>
             </div>
         </div>
 
         <!-- Timeline -->
         <div class="section">
             <div class="section-title">timeline</div>
-            
+
             <div class="timeline-item">
                 <div class="timeline-time">18:00</div>
                 <div class="timeline-text">activity</div>
@@ -385,7 +391,7 @@
             <p class="note" style="margin-bottom: 15px;">
                 <a href="https://mywishlist.online/w/rlp4wg/alexs-wishlist" style="color: #aaa;">wishlist</a>
             </p>
-            
+
             <div class="gift-grid" id="giftGrid"></div>
         </div>
 
@@ -393,25 +399,25 @@
         <div class="section">
             <div class="section-title">rsvp</div>
             <p class="note">joint venue with robi's page</p>
-            
+
             <form id="rsvpForm">
                 <div class="form-field">
                     <label>name</label>
                     <input type="text" id="name" required>
                 </div>
-                
+
                 <div class="form-field">
                     <label>attending?</label>
                     <input type="text" id="coming" required>
                 </div>
-                
+
                 <div class="form-field">
                     <label>drinks</label>
                     <textarea id="drinks"></textarea>
                 </div>
-                
+
                 <button type="submit" class="submit-btn">send</button>
-                
+
                 <div id="confirmation" class="confirmation" style="display: none;"></div>
             </form>
 
@@ -425,7 +431,7 @@
         <div class="section">
             <div class="section-title">party bingo</div>
             <p class="note">shared with robi's page</p>
-            
+
             <div class="bingo-grid" id="bingoGrid"></div>
         </div>
     </div>
@@ -486,12 +492,12 @@
                 const urlParams = new URLSearchParams(window.location.search);
                 const person = urlParams.get('person');
                 const res = await fetch(`/get-gifts-by-person?person=${person}`);
-                
+
                 if (!res.ok) {
                     console.error('Server responded with error:', res.status);
                     return [];
                 }
-                
+
                 return await res.json();
             } catch (error) {
                 console.error('Error loading gifts:', error);
@@ -503,12 +509,12 @@
             const rsvps = await loadRSVPs();
             const container = document.getElementById('rsvpItems');
             const listSection = document.getElementById('rsvpList');
-            
+
             if (rsvps.length === 0) {
                 listSection.style.display = 'none';
                 return;
             }
-            
+
             listSection.style.display = 'block';
             container.innerHTML = rsvps.map(rsvp => `
                 <div class="rsvp-item">
@@ -521,18 +527,18 @@
         async function initBingo() {
             const bingoData = await loadBingo();
             const grid = document.getElementById('bingoGrid');
-            
+
             grid.innerHTML = bingoData.map((cell, index) => {
                 const isFree = cell.bingo_text === 'free space';
                 const classes = `bingo-cell ${isFree ? 'free' : ''} ${cell.checked ? 'marked' : ''}`;
                 return `<div class="${classes}" data-index="${cell.cell_index}">${cell.bingo_text}</div>`;
             }).join('');
-            
+
             document.querySelectorAll('.bingo-cell:not(.free)').forEach(cell => {
-                cell.addEventListener('click', async function() {
+                cell.addEventListener('click', async function () {
                     const index = parseInt(this.dataset.index);
                     const isChecked = this.classList.contains('marked');
-                    
+
                     this.classList.toggle('marked');
                     await updateBingoCell(index, !isChecked);
                 });
@@ -542,7 +548,7 @@
         async function initGifts() {
             const gifts = await loadGifts();
             const grid = document.getElementById('giftGrid');
-            
+
             grid.innerHTML = gifts.map(gift => {
                 if (gift.link) {
                     return `
@@ -562,19 +568,19 @@
             }).join('');
         }
 
-        document.getElementById('rsvpForm').addEventListener('submit', async function(e) {
+        document.getElementById('rsvpForm').addEventListener('submit', async function (e) {
             e.preventDefault();
-            
+
             const name = document.getElementById('name').value;
             const coming = document.getElementById('coming').value;
             const drinks = document.getElementById('drinks').value;
-            
+
             const confirmation = document.getElementById('confirmation');
             confirmation.textContent = 'sending...';
             confirmation.style.display = 'block';
-            
+
             const saved = await saveRSVP(name, coming, drinks);
-            
+
             if (saved) {
                 confirmation.textContent = 'received';
                 this.reset();
@@ -594,4 +600,5 @@
         });
     </script>
 </body>
+
 </html>

@@ -7,21 +7,7 @@
   <title>You're Invited</title>
 
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Quicksand:wght@300;400&family=Raleway:wght@200;300&display=swap');
-
-    @font-face {
-      font-family: 'LanaDelReyUltraviolence';
-      src: url('rainbow.ttf') format('truetype');
-      font-weight: normal;
-      font-style: normal;
-    }
-
-    @font-face {
-      font-family: 'LanaDelReyHoneymoon';
-      src: url('joanna.otf') format('truetype');
-      font-weight: normal;
-      font-style: normal;
-    }
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Inter:wght@700;900&display=swap');
 
     * {
       margin: 0;
@@ -29,13 +15,17 @@
       box-sizing: border-box;
     }
 
+
+
     body {
       height: 100vh;
       height: 100dvh;
+      /* Use dynamic viewport height for Safari */
       overflow: hidden;
       background: #000;
       color: white;
       position: relative;
+      /* Set anchor for the center-title */
     }
 
     .split {
@@ -83,92 +73,65 @@
       opacity: 1;
     }
 
-    /* ALEX — TUMBLR */
-    .tumblr {
-      background: #fff;
-      color: #444;
+
+    /* ALEX â€” BRAT PARTY */
+    .party {
+      background: #8ace00;
+      color: #000;
     }
 
-    .tumblr::before {
-      background:
-        url('collage.jpg') ,
-        linear-gradient(135deg, rgba(255, 182, 193, 0.3), rgba(176, 224, 230, 0.3));
-      background-blend-mode: overlay;
-      opacity: 0.25;
-    }
-
-    .tumblr .grain-overlay {
+    .party .blur-overlay {
       position: absolute;
       inset: 0;
       background:
         repeating-linear-gradient(0deg,
-          rgba(0, 0, 0, 0.02) 0px,
+          rgba(0, 0, 0, 0.03) 0px,
           transparent 1px,
           transparent 2px,
-          rgba(0, 0, 0, 0.02) 3px);
+          rgba(0, 0, 0, 0.03) 3px);
+      filter: blur(1px);
       z-index: 1;
     }
 
-    /* Floating stars for tumblr side */
-    .stars {
-      position: absolute;
-      inset: 0;
-      z-index: 1;
+    .brat-text {
+      font-family: arial;
+      font-weight: 0;
+      letter-spacing: 0em;
+      font-size: clamp(4rem, 12vw, 8rem);
+      margin-bottom: 1.5rem;
+      transition: all 0.5s ease;
+      text-transform: lowercase;
+      filter: blur(1.5px);
+      text-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
+      transform: scaleY(1.15);
     }
 
-    .star {
-      position: absolute;
-      color: #aaa;
-      font-size: 20px;
-      opacity: 0.15;
-      animation: float-star 15s ease-in-out infinite;
+    .stretch {
+      -webkit-transform: scale(1, 1.2);
+      /* Safari and Chrome */
+      -moz-transform: scale(1, 1.2);
+      /* Firefox */
+      -ms-transform: scale(1, 1.2);
+      /* IE 9 */
+      -o-transform: scale(1, 1.2);
+      /* Opera */
+      transform: scale(1, 1.2);
+      /* W3C */
     }
 
-    .star:nth-child(1) {
-      top: 15%;
-      left: 20%;
-      animation-delay: 0s;
-    }
-
-    .star:nth-child(2) {
-      top: 40%;
-      left: 80%;
-      animation-delay: 3s;
-    }
-
-    .star:nth-child(3) {
-      top: 70%;
-      left: 30%;
-      animation-delay: 6s;
-    }
-
-    .star:nth-child(4) {
-      top: 25%;
-      left: 70%;
-      animation-delay: 9s;
-    }
-
-    .star:nth-child(5) {
-      top: 85%;
-      left: 60%;
-      animation-delay: 12s;
-    }
-
-    @keyframes float-star {
+    @keyframes float {
 
       0%,
       100% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 0.1;
+        transform: translate(0, 0) scale(1);
       }
 
       50% {
-        transform: translateY(-20px) rotate(180deg);
-        opacity: 0.2;
+        transform: translate(30px, -30px) scale(1.1);
       }
     }
 
-    /* ROBI — FANTASY */
+    /* ROBI â€” FANTASY */
     .fantasy {
       background: radial-gradient(circle at 50% 50%, #1a1a1a 0%, #0a0a0a 100%);
     }
@@ -253,7 +216,7 @@
       width: 150px;
       height: 150px;
       opacity: 0.06;
-      animation: float-rune 20s ease-in-out infinite;
+      animation: float 20s ease-in-out infinite;
     }
 
     .rune img {
@@ -288,7 +251,25 @@
       animation-delay: 9s;
     }
 
-    @keyframes float-rune {
+    .rune:nth-child(5) {
+      top: 45%;
+      left: 50%;
+      animation-delay: 12s;
+    }
+
+    .rune:nth-child(6) {
+      top: 25%;
+      left: 70%;
+      animation-delay: 15s;
+    }
+
+    .rune:nth-child(7) {
+      top: 70%;
+      left: 60%;
+      animation-delay: 18s;
+    }
+
+    @keyframes float {
 
       0%,
       100% {
@@ -317,18 +298,17 @@
 
     .name {
       font-size: clamp(4rem, 12vw, 8rem);
+      font-weight: 900;
       letter-spacing: 0.1em;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
       transition: all 0.5s ease;
     }
 
-    .tumblr .name {
-      font-family: 'LanaDelReyUltraviolence', sans-serif;
-      font-weight: 300;
-      font-size: clamp(3rem, 10vw, 6rem);
-      letter-spacing: 8px;
-      color: #666;
+    .party .name {
       text-transform: lowercase;
+      filter: blur(2px);
+      text-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
+      transform: scaleY(1.15);
     }
 
     .fantasy .name {
@@ -339,29 +319,27 @@
       background-clip: text;
       text-shadow: 0 0 60px rgba(212, 175, 55, 0.5);
       font-family: 'Cinzel', serif;
-      font-weight: 900;
     }
 
     .tagline {
-      font-size: clamp(0.8rem, 2vw, 1.2rem);
+      font-size: clamp(1rem, 2.5vw, 1.5rem);
       letter-spacing: 0.3em;
       opacity: 0.85;
+      font-weight: 700;
       transition: all 0.5s ease;
     }
 
-    .tumblr .tagline {
-      font-family: 'LanaDelReyHoneymoon', sans-serif;
-      font-weight: 200;
-      font-size: clamp(1rem, 1.5vw, 0.9rem);
-      letter-spacing: 4px;
-      color: #999;
+    .party .tagline {
+      text-transform: lowercase;
+      filter: blur(0.8px);
+      font-family: arial;
+      letter-spacing: 0;
     }
 
     .fantasy .tagline {
       text-transform: uppercase;
       color: #d4af37;
       font-family: 'Cinzel', serif;
-      font-weight: 700;
     }
 
     .side:hover .tagline {
@@ -374,16 +352,19 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+      /* Core fix for Safari centering */
       z-index: 25;
       pointer-events: none;
       text-align: center;
       width: 300px;
+      /* Ensure it spans the width to center the text inside */
     }
 
     .center-title h1 {
       font-size: clamp(1.2rem, 3vw, 1.8rem);
       letter-spacing: 0.5em;
       opacity: 0.6;
+      /* Increased slightly for legibility */
       font-weight: 700;
       text-transform: uppercase;
       color: white;
@@ -391,6 +372,7 @@
         0 0 20px rgba(0, 0, 0, 0.8),
         2px 2px 4px rgba(0, 0, 0, 0.9);
       mix-blend-mode: difference;
+      word-wrap: normal;
     }
 
     /* MOBILE */
@@ -407,6 +389,7 @@
       .center-title {
         top: 50%;
         transform: translate(-50%, -50%);
+        /* Ensure it stays centered when columns stack */
       }
 
       body {
@@ -419,28 +402,30 @@
       }
 
       .rune:nth-child(1) {
-        top: 70%;
-        left: 10%;
-      }
+      top: 70%;
+      left: 10%;
+      animation-delay: 0s;
+    }
 
-      .rune:nth-child(2) {
-        top: 80%;
-        right: 10%;
-      }
+    .rune:nth-child(2) {
+      top: 80%;
+      right: 10%;
+      animation-delay: 3s;
+    }
 
-      .rune:nth-child(3) {
-        top: 60%;
-        left: 50%;
-      }
+    .rune:nth-child(3) {
+      top: 60%;
+      left: 50%;
+      animation-delay: 6s;
+    }
 
-      .rune:nth-child(4) {
-        top: 90%;
-        right: 55%;
-      }
+    .rune:nth-child(4) {
+      top: 90%;
+      right: 55%;
+      animation-delay: 9s;
+    }
 
-      .star {
-        font-size: 12px;
-      }
+   
     }
 
     /* Entrance animation */
@@ -474,7 +459,7 @@
       }
     }
 
-    .tumblr {
+    .party {
       animation: slideInLeft 1s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
@@ -494,23 +479,16 @@
   </div>
 
   <div class="split">
-    <!-- ALEX — TUMBLR -->
-    <a class="side tumblr" href="alex.html?person=alex">
-      <div class="grain-overlay"></div>
-      <div class="stars">
-        <div class="star">✧</div>
-        <div class="star">✦</div>
-        <div class="star">✧</div>
-        <div class="star">✦</div>
-        <div class="star">✧</div>
-      </div>
+    <!-- ALEX â€” PARTY -->
+    <a class="side party" href="alex.html?person=alex">
+      <div class="blur-overlay"></div>
       <div class="content">
-        <div class="name">alex</div>
-        <div class="tagline">still not over the Lana Del Rey phase</div>
+        <div class="brat-text stretch">alex</div>
+        <div class="tagline stretch"> it's the same bday but a different year so not really</div>
       </div>
     </a>
 
-    <!-- ROBI — FANTASY -->
+    <!-- ROBI â€” FANTASY -->
     <a class="side fantasy" href="robi.html?person=robi">
       <div class="ember-particles">
         <div class="ember"></div>
@@ -518,6 +496,7 @@
         <div class="ember"></div>
         <div class="ember"></div>
       </div>
+      <!-- Dragon Runes Background -->
       <div class="runes">
         <div class="rune"><img src="rune8.svg" alt=""></div>
         <div class="rune"><img src="rune2.svg" alt=""></div>

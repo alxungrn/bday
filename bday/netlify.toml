@@ -1,8 +1,28 @@
 [build]
-  functions = "netlify/functions"
-  publish = "."
+  functions = "functions"
+  publish = "bday"
 
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
+  from = "/save-rsvp"
+  to = "/.netlify/functions/save-rsvp"
+  status = 200
+
+[[redirects]]
+  from = "/get-rsvps"
+  to = "/.netlify/functions/get-rsvps"
+  status = 200
+
+[[redirects]]
+  from = "/get-bingo"
+  to = "/.netlify/functions/get-bingo"
+  status = 200
+
+[[redirects]]
+  from = "/update-bingo"
+  to = "/.netlify/functions/update-bingo"
+  status = 200
+
+[[redirects]]
+  from = "/get-gifts"
+  to = "/.netlify/functions/get-gifts"
   status = 200

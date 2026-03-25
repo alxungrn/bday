@@ -1,35 +1,35 @@
-import { neon } from '@neondatabase/serverless';
+const { neon } = require('@neondatabase/serverless');
 
-export async function onRequest(context) {
+exports.handler = async (event) => {
   try {
-    const url = new URL(context.request.url);
-    const person = url.searchParams.get('person');
-    
+    const person = event.queryStringParameters?.person;
+
     if (!person) {
-      return new Response(JSON.stringify({ error: 'Person parameter required' }), {
-        status: 400,
-        headers: { 'Content-Type': 'application/json' }
-      });
+      return {
+        statusCode: 400,
+        body: JSON.stringify({ error: 'Person parameter required' })
+      };
     }
-    
-    const sql = neon(context.env.NETLIFY_DATABASE_URL_UNPOOLED);
-    
+
+    const sql = neon(process.env.NETLIFY_DATABASE_URL_UNPOOLED);
+
     const gifts = await sql`
       SELECT gift_name, description, link
       FROM gifts
       WHERE person = ${person}
       ORDER BY display_order
     `;
-    
-    return new Response(JSON.stringify(gifts), {
-      status: 200,
-      headers: { 'Content-Type': 'application/json' }
-    });
+
+    return {
+      statusCode: 200,
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(gifts)
+    };
   } catch (error) {
     console.error('Error:', error);
-    return new Response(JSON.stringify({ error: 'Failed to load gifts' }), {
-      status: 500,
-      headers: { 'Content-Type': 'application/json' }
-    });
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ error: 'Failed to load gifts' })
+    };
   }
-}
+};

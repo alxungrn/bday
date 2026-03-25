@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>alex's birthday party</title>
+    <title>party party party</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Arial:wght@700;900&display=swap');
         
@@ -255,6 +255,11 @@
             background: #0f0f0f;
         }
         
+        .bye-section {
+            background: #0f0f0f;
+            min-height: 20vh;
+        }
+
         .bingo-wrapper {
         width: 100%;
         overflow-x: auto;
@@ -385,12 +390,12 @@
     <!-- Hero Section -->
     <section class="section hero">
         <div class="brat-text blur-text stretch">
-            <div class="neon-green">alex's</div>
-            <div class="neon-pink">birthday</div>
+            <div class="neon-green">alex and robi</div>
+            <div class="neon-pink">birthday/s</div>
             <div class="neon-blue">party</div>
         </div>
         <div class="subtitle" style="margin-top: 6rem;">april 18, 2026</div>
-        <div class="subtitle" style="margin-top: 3srem;">you're invited. again.</div>
+        <div class="subtitle" style="margin-top: 3srem;">you're invited.</div>
         <div class="scroll-hint">scroll if you care ↓</div>
     </section>
 
@@ -402,7 +407,7 @@
             <div class="detail-item">
                 <h3>when</h3>
                 <p>april 18, 2026</p>
-                <p>exact time tbd but like... probably evening</p>
+                <p>starting with 7 pm</p>
             </div>
             
             <div class="detail-item">
@@ -428,24 +433,24 @@
             
             <div class="timeline">
                 <div class="timeline-item">
-                    <div class="time">18:00</div>
-                    <div class="activity">activity (one of those things i mentioned)</div>
-                </div>
-                <div class="timeline-item">
                     <div class="time">19:00</div>
-                    <div class="activity">restaurant - gotta eat</div>
-                </div>
-                <div class="timeline-item">
-                    <div class="time">21:00</div>
-                    <div class="activity">manele - self-explanatory</div>
+                    <div class="activity">be there</div>
                 </div>
                 <div class="timeline-item">
                     <div class="time">22:00</div>
-                    <div class="activity">acasa - first bottle opens</div>
+                    <div class="activity">cake</div>
                 </div>
                 <div class="timeline-item">
-                    <div class="time">00:00</div>
-                    <div class="activity">baieramul continues</div>
+                    <div class="time">23:00</div>
+                    <div class="activity">club</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="time">03:00</div>
+                    <div class="activity">bus</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="time">03:10</div>
+                    <div class="activity">another club</div>
                 </div>
             </div>
         </div>
@@ -456,7 +461,7 @@
         <div class="content-box" style="max-width: 1200px;">
             <h2 class="section-title neon-blue">gift ideas</h2>
             <p style="opacity: 0.7; margin-bottom: 1rem; text-transform: lowercase;">
-                just pick whatever
+                for alex. robi just wants money.
             </p>
             <p style="opacity: 0.5; margin-bottom: 2rem; text-transform: lowercase; font-size: 0.9rem;">
                 wishlist: <a href="https://mywishlist.online/w/rlp4wg/alexs-wishlist" style="color: #00d9ff;">mywishlist.online/w/rlp4wg/alexs-wishlist</a>
@@ -475,8 +480,6 @@
             <p style="opacity: 0.7; margin-bottom: 2rem; text-transform: lowercase;">
                 let me know if you're coming. or don't. whatever.
             </br></br>
-
-            joint venue. you can respond wherever.
             </p>
             
             <form id="rsvpForm">
@@ -509,8 +512,15 @@
         </div>
     </section>
 
+    <section class="section bye-section">
+    <p style="opacity: 0.7; text-transform: lowercase;">
+                bumping that
+            </br></br>
+            </p>
+    </section>
+
     <!-- BINGO Section -->
-    <section class="section bingo-section">
+    <!-- <section class="section bingo-section">
         <div class="content-box" style="max-width: 900px;">
             <h2 class="section-title neon-pink">party bingo</h2>
             <p style="opacity: 0.7; margin-bottom: 2rem; text-transform: lowercase;">
@@ -518,11 +528,11 @@
             </p>
             <div class="bingo-wrapper">
             <div class="bingo-grid" id="bingoGrid">
-                <!-- Bingo cells will be loaded from database -->
-            </div>
+                <!-- Bingo cells will be loaded from database --> 
+     <!--        </div>
             </div>
         </div>
-    </section>
+    </section>  -->
 
     <script>
         // API calls to Netlify functions
@@ -583,7 +593,7 @@
                 const person = urlParams.get('person');
 
                 // 2. Use BACKTICKS ( ` ) for the URL string
-                const res = await fetch(`/get-gifts-by-person?person=${person}`);
+                const res = await fetch(`/get-gifts-by-person?person=alex`);
                 
                 if (!res.ok) {
                     console.error('Server responded with error:', res.status);

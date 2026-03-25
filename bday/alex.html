@@ -593,7 +593,7 @@
                 const person = urlParams.get('person');
 
                 // 2. Use BACKTICKS ( ` ) for the URL string
-                const res = await fetch(`/get-gifts-by-person?person=${person}`);
+                const res = await fetch(`/get-gifts-by-person?person=alex`);
                 
                 if (!res.ok) {
                     console.error('Server responded with error:', res.status);

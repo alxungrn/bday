@@ -643,6 +643,12 @@
             const grid = document.getElementById('giftGrid');
             
             grid.innerHTML = gifts.map(gift => {
+                console.log('initGifts called');
+                const gifts = await loadGifts();
+                console.log('gifts received:', gifts);
+                const grid = document.getElementById('giftGrid');
+                console.log('grid element:', grid);
+
                 if (gift.link) {
                     return `
                         <a href="${gift.link}" target="_blank" class="gift-card">

@@ -26,3 +26,8 @@
   from = "/get-gifts"
   to = "/.netlify/functions/get-gifts"
   status = 200
+
+[[redirects]]
+  from = "/get-gifts-by-person"
+  to = "/.netlify/functions/get-gifts-by-person"
+  status = 200

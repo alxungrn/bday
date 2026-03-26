@@ -640,15 +640,17 @@
 
         // Initialize gifts grid
         async function initGifts() {
-            const gifts = await loadGifts();
-            const grid = document.getElementById('giftGrid');
-            
-            grid.innerHTML = gifts.map(gift => {
-                console.log('initGifts called');
+              console.log('initGifts called');
                 const gifts = await loadGifts();
                 console.log('gifts received:', gifts);
                 const grid = document.getElementById('giftGrid');
                 console.log('grid element:', grid);
+            
+            const gifts = await loadGifts();
+            const grid = document.getElementById('giftGrid');
+            
+            grid.innerHTML = gifts.map(gift => {
+              
 
                 if (gift.link) {
                     return `

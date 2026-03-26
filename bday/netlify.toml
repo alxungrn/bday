@@ -4,30 +4,25 @@
 
 [[redirects]]
   from = "/save-rsvp"
-  to = "/.netlify/functions/save-rsvp"
+  to = "/functions/save-rsvp"
   status = 200
 
 [[redirects]]
   from = "/get-rsvps"
-  to = "/.netlify/functions/get-rsvps"
+  to = "/functions/get-rsvps"
   status = 200
 
 [[redirects]]
   from = "/get-bingo"
-  to = "/.netlify/functions/get-bingo"
+  to = "/functions/get-bingo"
   status = 200
 
 [[redirects]]
   from = "/update-bingo"
-  to = "/.netlify/functions/update-bingo"
+  to = "/functions/update-bingo"
   status = 200
 
 [[redirects]]
   from = "/get-gifts"
-  to = "/.netlify/functions/get-gifts"
-  status = 200
-
-[[redirects]]
-  from = "/get-gifts-by-person"
-  to = "/.netlify/functions/get-gifts-by-person"
+  to = "/functions/get-gifts"
   status = 200

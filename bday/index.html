@@ -64,11 +64,11 @@
         
         .stretch {
             display:inline-block;
-            -webkit-transform:scale(1,1.2); /* Safari and Chrome */
-            -moz-transform:scale(1,1.2); /* Firefox */
-            -ms-transform:scale(1,1.2); /* IE 9 */
-            -o-transform:scale(1,1.2); /* Opera */
-            transform:scale(1,1.2); /* W3C */
+            -webkit-transform:scale(1,1.2);
+            -moz-transform:scale(1,1.2);
+            -ms-transform:scale(1,1.2);
+            -o-transform:scale(1,1.2);
+            transform:scale(1,1.2);
         }
 
         @keyframes blur-pulse {
@@ -113,16 +113,14 @@
             margin-bottom: 0.5rem;
             text-transform: lowercase;
             color: #8ace00;
-                        font-family: arial;
-
+            font-family: arial;
         }
         
         .detail-item p {
             opacity: 0.8;
             line-height: 1.6;
             text-transform: lowercase;
-                        font-family: arial;
-
+            font-family: arial;
         }
         
         .timeline {
@@ -221,8 +219,7 @@
             background: rgba(138, 206, 0, 0.1);
             border: 2px solid #8ace00;
             color: #fff;
-                        font-family: arial;
-
+            font-family: arial;
             font-size: 1rem;
             text-transform: lowercase;
         }
@@ -250,69 +247,12 @@
             transform: scale(1.05);
             box-shadow: 0 0 30px rgba(138, 206, 0, 0.5);
         }
-        
-        .bingo-section {
-            background: #0f0f0f;
-        }
-        
+
         .bye-section {
             background: #0f0f0f;
             min-height: 20vh;
         }
 
-        .bingo-wrapper {
-        width: 100%;
-        overflow-x: auto;
-        /* Enables horizontal scroll for ONLY this div */
-        -webkit-overflow-scrolling: touch;
-        /* Smooth scrolling on iOS */
-        
-        /* Space for the "glow" so it doesn't get cut off */
-        cursor: grab;
-        padding-bottom: 20px;
-        }
-
-        .bingo-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 0.5rem;
-            max-width: 800px;
-            width: 100%;
-            margin-top: 2rem;
-        }
-        
-        .bingo-cell {
-            aspect-ratio: 1;
-            background: rgba(255, 0, 110, 0.1);
-            border: 2px solid #ff006e;
-            padding: 0.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            font-size: 0.7rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: lowercase;
-        }
-        
-        .bingo-cell:hover {
-            background: rgba(255, 0, 110, 0.3);
-            transform: scale(1.05);
-        }
-        
-        .bingo-cell.marked {
-            background: #ff006e;
-            color: #0a0a0a;
-            font-weight: 900;
-        }
-        
-        .bingo-cell.free {
-            background: #8ace00;
-            color: #0a0a0a;
-            font-weight: 900;
-        }
-        
         .scroll-hint {
             position: absolute;
             bottom: 2rem;
@@ -325,18 +265,6 @@
         @keyframes bounce {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-10px); }
-        }
-        
-        @media (max-width: 768px) {
-            .bingo-grid {
-                grid-template-columns: repeat(5, 1fr);
-                gap: 0.3rem;
-            }
-            
-            .bingo-cell {
-                font-size: 0.5rem;
-                padding: 0.3rem;
-            }
         }
         
         .confirmation {
@@ -382,7 +310,7 @@
         }
 
         iframe {
-        filter: grayscale(100%) invert(95%) contrast(100%);
+            filter: grayscale(100%) invert(95%) contrast(100%);
         }
     </style>
 </head>
@@ -395,7 +323,7 @@
             <div class="neon-blue">party</div>
         </div>
         <div class="subtitle" style="margin-top: 6rem;">april 18, 2026</div>
-        <div class="subtitle" style="margin-top: 3srem;">you're invited.</div>
+        <div class="subtitle" style="margin-top: 3rem;">you're invited.</div>
         <div class="scroll-hint">scroll if you care ↓</div>
     </section>
 
@@ -418,7 +346,6 @@
                 <p>but let's be serious most of you already know</p>
 
                 <iframe width="100%" height="450px" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB2NIWI3Tv9iDPrlnowr_0ZqZWoAQydKJU&q=strada%20teleajen%2050&maptype=roadmap" allowfullscreen></iframe>
-
             </div>
         </div>
     </section>
@@ -479,7 +406,7 @@
             <h2 class="section-title neon-green">rsvp</h2>
             <p style="opacity: 0.7; margin-bottom: 2rem; text-transform: lowercase;">
                 let me know if you're coming. or don't. whatever.
-            </br></br>
+            <br><br>
             </p>
             
             <form id="rsvpForm">
@@ -513,18 +440,10 @@
     </section>
 
     <section class="section bye-section">
-    <p style="opacity: 0.7; text-transform: lowercase;">
-                bumping that
-            </br></br>
-            </p>
+        <p style="opacity: 0.7; text-transform: lowercase;">bumping that</p>
     </section>
 
-    <!-- BINGO Section -->
-   
-
     <script>
-        console.log('script loaded');
-        // API calls to Netlify functions
         async function saveRSVP(name, coming, drinks) {
             try {
                 const res = await fetch('/save-rsvp', {
@@ -550,52 +469,20 @@
             }
         }
 
-        async function loadBingo() {
+        async function loadGifts() {
             try {
-                const res = await fetch('/get-bingo');
-                if (!res.ok) return [];
-                return await res.json();
-            } catch (error) {
-                console.error('Error loading bingo:', error);
-                return [];
-            }
-        }
-
-        async function updateBingoCell(cellIndex, checked) {
-            try {
-                const res = await fetch('/update-bingo', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ cellIndex, checked })
-                });
-                return res.ok;
-            } catch (error) {
-                console.error('Error updating bingo:', error);
-                return false;
-            }
-        }
-
-       async function loadGifts() {
-            try {
-                // 1. Grab the 'person' value from the browser's current URL
-                const urlParams = new URLSearchParams(window.location.search);
-                const person = urlParams.get('person');
-
-                // 2. Use BACKTICKS ( ` ) for the URL string
-                const res = await fetch(`/get-gifts-by-person?person=alex`);
-                
+                const res = await fetch('/get-gifts-by-person?person=alex');
                 if (!res.ok) {
                     console.error('Server responded with error:', res.status);
                     return [];
                 }
-                
                 return await res.json();
             } catch (error) {
                 console.error('Error loading gifts:', error);
                 return [];
             }
         }
-        // Display RSVPs
+
         async function displayRSVPs() {
             const rsvps = await loadRSVPs();
             const container = document.getElementById('rsvpItems');
@@ -615,38 +502,11 @@
             `).join('');
         }
 
-        // Initialize bingo grid
-        async function initBingo() {
-            const bingoData = await loadBingo();
-            const grid = document.getElementById('bingoGrid');
-            
-            grid.innerHTML = bingoData.map((cell, index) => {
-                const isFree = cell.bingo_text === 'free space';
-                const classes = `bingo-cell ${isFree ? 'free' : ''} ${cell.checked ? 'marked' : ''}`;
-                return `<div class="${classes}" data-index="${cell.cell_index}">${cell.bingo_text}</div>`;
-            }).join('');
-            
-            // Add click handlers
-            document.querySelectorAll('.bingo-cell:not(.free)').forEach(cell => {
-                cell.addEventListener('click', async function() {
-                    const index = parseInt(this.dataset.index);
-                    const isChecked = this.classList.contains('marked');
-                    
-                    this.classList.toggle('marked');
-                    await updateBingoCell(index, !isChecked);
-                });
-            });
-        }
-
-        // Initialize gifts grid
         async function initGifts() {
-            
             const gifts = await loadGifts();
             const grid = document.getElementById('giftGrid');
             
             grid.innerHTML = gifts.map(gift => {
-              
-
                 if (gift.link) {
                     return `
                         <a href="${gift.link}" target="_blank" class="gift-card">
@@ -665,7 +525,6 @@
             }).join('');
         }
 
-        // RSVP Form Handler
         document.getElementById('rsvpForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             
@@ -691,14 +550,11 @@
             }
         });
 
-        // Initialize on load
         window.addEventListener('DOMContentLoaded', async () => {
             await displayRSVPs();
-            await initBingo();
             await initGifts();
         });
 
-        // Smooth Scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
